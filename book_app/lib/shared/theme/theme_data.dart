@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
@@ -28,7 +30,6 @@ class ThemeConfig {
 
     return ThemeData(
       brightness: brightness,
-      buttonColor: primaryColor,
       canvasColor: primaryBackgroundColor,
       cardColor: primaryBackgroundColor,
       dividerColor: divider,
@@ -50,7 +51,6 @@ class ThemeConfig {
       ),
       backgroundColor: primaryBackgroundColor,
       primaryColor: primaryColor,
-      accentColor: accentColor,
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: accentColor,
         selectionColor: accentColor,
@@ -58,7 +58,6 @@ class ThemeConfig {
       ),
       toggleableActiveColor: accentColor,
       appBarTheme: AppBarTheme(
-        brightness: brightness,
         color: primaryColor,
         textTheme: TextTheme(
           bodyText1: baseTextTheme.bodyText1!.copyWith(
@@ -200,6 +199,7 @@ class ThemeConfig {
           fontWeight: FontWeight.w500,
         ),
       ),
+      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor),
     );
   }
 
@@ -220,5 +220,4 @@ class ThemeConfig {
         primaryBorderColor: AppColor.primaryBorderColorLight,
         error: AppColor.errorColorLight,
       );
-
 }

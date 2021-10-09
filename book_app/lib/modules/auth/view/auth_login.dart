@@ -1,3 +1,4 @@
+import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../shared/styles/text_style.dart';
@@ -18,7 +19,7 @@ class AuthuLoginScreen extends GetView<AuthController> {
           child: SingleChildScrollView(
               child: Column(
             children: [
-              const SizedBox(height: 16),
+              const SizedBox(height: 32),
               FCoreImage(ImageConstants.imageBackgroundImage),
               const SizedBox(height: 16),
               InputWidget(
@@ -35,7 +36,7 @@ class AuthuLoginScreen extends GetView<AuthController> {
               const SizedBox(height: 16),
               AppGradientButton(
                 onPressed: () {
-                  print("login");
+                  Get.toNamed(Routes.HOME);
                 },
                 child: Text(
                   'login',

@@ -1,4 +1,4 @@
-import 'package:book_app/shared/widgets/image_widget/fcore_image.dart';
+import '../image_widget/fcore_image.dart';
 import 'package:flutter/material.dart';
 
 class SocalCard extends StatelessWidget {

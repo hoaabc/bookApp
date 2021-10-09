@@ -32,10 +32,13 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_easyloading: ^3.0.3
   flutter_svg: ^0.22.0
+  carousel_slider: ^4.0.0
+  dots_indicator: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lints: ^1.0.1
   #getX
 
 # For information on the generic Dart part of this file, see the
