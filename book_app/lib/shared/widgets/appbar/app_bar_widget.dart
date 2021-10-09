@@ -1,12 +1,10 @@
-import 'package:book_app/routes/app_pages.dart';
-import 'package:book_app/shared/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../resource/assets_constant/icon_constants.dart';
+import '../../../routes/app_pages.dart';
 import '../../constants/colors.dart';
 import '../../constants/common.dart';
-import '../image_widget/fcore_image.dart';
+import '../../styles/text_style.dart';
 
 PreferredSizeWidget appbar(BuildContext context,
     {String title = APP_NAME, IconButton? leadingIcon}) {
@@ -43,9 +41,9 @@ PreferredSizeWidget appbar(BuildContext context,
         ),
     actions: [
       IconButton(
-        icon: FCoreImage(
-          IconConstants.menu,
-          fit: BoxFit.fitHeight,
+        icon:const  Icon(
+          Icons.search,
+          color: Colors.white,
         ),
         onPressed: () {
           Get.toNamed(Routes.HOME);

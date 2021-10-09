@@ -1,6 +1,7 @@
-import 'package:book_app/modules/about/controller/about_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../controller/about_controller.dart';
 
 
 class AboutLoginScreen extends GetView<AboutController> {

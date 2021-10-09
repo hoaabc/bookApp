@@ -1,8 +1,8 @@
-import 'package:book_app/shared/widgets/image_widget/fcore_image.dart';
-import 'package:flutter/material.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter/material.dart';
+
+import '../image_widget/fcore_image.dart';
 
 class CarouselWidget extends StatefulWidget {
   const CarouselWidget({

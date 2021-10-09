@@ -1,7 +1,8 @@
-import 'package:book_app/routes/app_pages.dart';
-import 'package:book_app/shared/theme/theme_data.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'routes/app_pages.dart';
+import 'shared/theme/theme_data.dart';
 
 class App extends StatelessWidget {
   @override

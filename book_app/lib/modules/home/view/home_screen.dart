@@ -1,11 +1,10 @@
-import 'package:book_app/resource/assets_constant/images_constants.dart';
-import 'package:book_app/shared/widgets/appbar/app_bar_widget.dart';
-import 'package:book_app/shared/widgets/carousel/carousel_widget.dart';
-import 'package:book_app/shared/widgets/image_widget/fcore_image.dart';
-
-import '../controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../shared/widgets/appbar/app_bar_widget.dart';
+import '../../../shared/widgets/carousel/carousel_widget.dart';
+import '../controller/home_controller.dart';
+
 part 'home_screen.childern.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -29,6 +28,7 @@ class HomeScreen extends GetView<HomeController> {
               ),
               const SizedBox(height: 16),
               
+
 
             ],
           ))),
