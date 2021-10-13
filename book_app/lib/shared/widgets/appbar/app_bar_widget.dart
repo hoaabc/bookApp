@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 import '../../constants/colors.dart';
 import '../../constants/common.dart';
-import '../../styles/text_style.dart';
+import '../../styles/text_style/text_style.dart';
 
 PreferredSizeWidget appbar(BuildContext context,
     {String title = APP_NAME, IconButton? leadingIcon}) {
