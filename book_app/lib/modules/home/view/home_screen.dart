@@ -11,7 +11,7 @@ import '../controller/home_controller.dart';
 part 'home_screen.childern.dart';
 
 class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+  // const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

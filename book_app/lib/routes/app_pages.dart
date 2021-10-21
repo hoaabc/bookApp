@@ -1,3 +1,5 @@
+import 'package:book_app/modules/detail/binding/detail_binding.dart';
+import 'package:book_app/modules/detail/view/detail_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -13,4 +15,8 @@ final routePages = [
       page: () => AuthuLoginScreen(),
       binding: AuthBinding()),
   GetPage(name: Routes.HOME, page: () => HomeScreen(), binding: HomeBinding()),
+  GetPage(
+      name: Routes.DETAIL,
+      page: () => DetailScreen(),
+      binding: DetailBinding()),
 ];
