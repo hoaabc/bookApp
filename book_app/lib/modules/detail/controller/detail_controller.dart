@@ -4,3 +4,4 @@ import 'package:book_app/resource/assets_constant/images_constants.dart';
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {}
+// alo
