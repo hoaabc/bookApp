@@ -1,7 +1,7 @@
-import 'package:book_app/models/home_model/home_models.dart';
-import 'package:book_app/resource/assets_constant/images_constants.dart';
-
 import 'package:get/get.dart';
+
+import '../../../models/home_model/home_models.dart';
+import '../../../resource/assets_constant/images_constants.dart';
 
 class HomeController extends GetxController {
   List<String> getListSliderImage() {

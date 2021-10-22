@@ -16,7 +16,7 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(context, title: 'Home'),
+      appBar: appbar(context, title: 'Home', isRequired: false),
       body: Scrollbar(
         child: SingleChildScrollView(
             child: Column(

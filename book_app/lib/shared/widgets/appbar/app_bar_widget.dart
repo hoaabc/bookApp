@@ -7,7 +7,7 @@ import '../../constants/common.dart';
 import '../../styles/text_style/text_style.dart';
 
 PreferredSizeWidget appbar(BuildContext context,
-    {String title = APP_NAME, IconButton? leadingIcon}) {
+    {String title = APP_NAME, bool? isRequired = true}) {
   return AppBar(
     title: Text(
       title,
@@ -32,16 +32,17 @@ PreferredSizeWidget appbar(BuildContext context,
       ),
     ),
     centerTitle: true,
-    leading: leadingIcon ??
-        IconButton(
-          icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
+    leading: isRequired!
+        ? IconButton(
+            icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          )
+        : null,
     actions: [
       IconButton(
-        icon:const  Icon(
+        icon: const Icon(
           Icons.search,
           color: Colors.white,
         ),
