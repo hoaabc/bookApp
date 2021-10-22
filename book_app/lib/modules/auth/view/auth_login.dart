@@ -14,40 +14,41 @@ class AuthuLoginScreen extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          margin:const EdgeInsets.symmetric(horizontal: 16),
-          child: SingleChildScrollView(
-              child: Column(
-            children: [
-              const SizedBox(height: 32),
-              FCoreImage(ImageConstants.imageBackgroundImage),
-              const SizedBox(height: 16),
-              InputWidget(
-                hintText: 'User name',
-                obscureText: true,
-                controller: controller.userNameController,
-              ),
-              const SizedBox(height: 16),
-              InputWidget(
-                hintText: 'PassWord',
-                obscureText: false,
-                controller: controller.passWordController,
-              ),
-              const SizedBox(height: 16),
-              AppGradientButton(
-                onPressed: () {
-                  Get.toNamed(Routes.HOME);
-                },
-                child: Text(
-                  'login',
-                  style: TextAppStyle().textEnableButtonStyle(),
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: SingleChildScrollView(
+                child: Column(
+              children: [
+                const SizedBox(height: 32),
+                FCoreImage(ImageConstants.imageBackgroundImage),
+                const SizedBox(height: 16),
+                InputWidget(
+                  hintText: 'User name',
+                  obscureText: true,
+                  controller: controller.userNameController,
                 ),
-              ),
-              const SizedBox(height: 16),
-           
-            ],
-          ))),
+                const SizedBox(height: 16),
+                InputWidget(
+                  hintText: 'PassWord',
+                  obscureText: false,
+                  controller: controller.passWordController,
+                ),
+                const SizedBox(height: 16),
+                AppGradientButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.DETAIL);
+                  },
+                  child: Text(
+                    'login',
+                    style: TextAppStyle().textEnableButtonStyle(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ))),
+      ),
     );
   }
 }

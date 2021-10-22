@@ -2,6 +2,8 @@ import 'package:book_app/modules/about/binding/about_binding.dart';
 import 'package:book_app/modules/about/view/about_screen.dart';
 import 'package:book_app/shared/bottom_navigation/binding/bottom_navigation_binding.dart';
 import 'package:book_app/shared/bottom_navigation/view/bottom_navigation_screen.dart';
+import 'package:book_app/modules/detail/binding/detail_binding.dart';
+import 'package:book_app/modules/detail/view/detail_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -25,4 +27,8 @@ final routePages = [
       name: Routes.BOTTOMBAR,
       page: () => BottomNavigationCustom(),
       binding: BottomNavigationBinding()),
+ GetPage(
+      name: Routes.DETAIL,
+      page: () => DetailScreen(),
+      binding: DetailBinding()),
 ];
