@@ -131,6 +131,211 @@ class DetailScreen extends GetView<DetailController> {
                 ],
               ),
             ),
+            DefaultTabController(
+              length: 2,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: TabBar(
+                        unselectedLabelColor: HexColor('#706A6A'),
+                        labelColor: HexColor('#0482F8'),
+                        tabs: [
+                          Tab(
+                            child: Text(
+                              "Chi tiết",
+                            ),
+                          ),
+                          Tab(
+                            child: Text(
+                              "Chapter",
+                            ),
+                          ),
+                        ]),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //Add this to give height
+                    height: MediaQuery.of(context).size.height,
+                    child: TabBarView(children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Đang cập nhật",
+                                style: TextStyle(
+                                    color: HexColor('#0482F8'), fontSize: 17),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 30,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 30,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 30,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 30,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 30,
+                                  ),
+                                  Text(
+                                    "5.0",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          Text(
+                            'Nếu được trùng sinh lại một lần nữa về thời điểm chưa từng xảy ra, ta sẽ làm gì? \n'
+                            'Không nhu nhược nữa \n'
+                            'Không cả tin nữa\n'
+                            'Không nhân nhượng nữa',
+                            style: TextStyle(
+                              color: HexColor("#6D6C6C"),
+                              height: 1.5,
+                            ),
+                          ),
+                          Divider(
+                            height: 20,
+                            thickness: 10,
+                            color: HexColor('#C4C4C4'),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Bình luận nổi bật',
+                                style: TextStyle(
+                                    color: HexColor('#4E4848'),
+                                    fontSize: 17,
+                                    height: 2),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 5),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      child: Image.asset(
+                                        "lib/resource/assets_resources/images/slider_image.jpeg",
+                                        width: 80,
+                                        height: 80,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: SizedBox(
+                                          height: 80,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Sơn Tùng MTP',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    height: 2,
+                                                    fontSize: 17),
+                                              ),
+                                              Text(
+                                                'Hay quá ạ ',
+                                                style: TextStyle(
+                                                    color: HexColor('#A5A0A0'),
+                                                    fontSize: 15),
+                                              ),
+                                            ],
+                                          )),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 5),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      child: Image.asset(
+                                        "lib/resource/assets_resources/images/slider_image.jpeg",
+                                        width: 80,
+                                        height: 80,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: SizedBox(
+                                          height: 80,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Ronaldo',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    height: 2,
+                                                    fontSize: 17),
+                                              ),
+                                              Flexible(
+                                                child: Text(
+                                                  'Hay quá ạ Hay quá ạ ',
+                                                  style: TextStyle(
+                                                      color:
+                                                          HexColor('#A5A0A0'),
+                                                      fontSize: 15),
+                                                ),
+                                              ),
+                                            ],
+                                          )),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      Container(
+                        child: Text("Articles Body"),
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
