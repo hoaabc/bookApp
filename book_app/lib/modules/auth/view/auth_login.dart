@@ -10,7 +10,7 @@ import '../../../shared/widgets/text_input/input_widget.dart';
 import '../controller/auth_controller.dart';
 
 class AuthuLoginScreen extends GetView<AuthController> {
-  const AuthuLoginScreen({Key? key}) : super(key: key);
+   AuthuLoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class AuthuLoginScreen extends GetView<AuthController> {
                 const SizedBox(height: 16),
                 AppGradientButton(
                   onPressed: () {
-                    Get.toNamed(Routes.DETAIL);
+                    Get.toNamed(Routes.HOME);
                   },
                   child: Text(
                     'login',

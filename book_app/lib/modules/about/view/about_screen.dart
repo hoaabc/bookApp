@@ -28,6 +28,9 @@ class AboutLoginScreen extends GetView<AboutController> {
               borderRadius: 8,
               items: controller.getListSliderImage(),
             ),
+            // Wrap(
+
+            // )
           ],
         )),
       ),

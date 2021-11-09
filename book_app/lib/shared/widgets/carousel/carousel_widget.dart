@@ -59,6 +59,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   },
                 ),
                 options: CarouselOptions(
+                  
                   aspectRatio: widget.aspectRatio,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal,

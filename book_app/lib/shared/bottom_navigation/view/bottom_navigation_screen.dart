@@ -1,55 +1,65 @@
-import 'package:book_app/modules/about/view/about_screen.dart';
-import 'package:book_app/modules/home/view/home_screen.dart';
-import 'package:book_app/resource/assets_constant/icon_constants.dart';
-import 'package:book_app/shared/constants/colors.dart';
-import 'package:book_app/shared/widgets/image_widget/fcore_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/bottom_navigation_controller.dart';
+import '../../../resource/assets_constant/icon_constants.dart';
+import '../../../routes/app_pages.dart';
+import '../../constants/colors.dart';
+import '../../widgets/image_widget/fcore_image.dart';
 
-class BottomNavigationCustom extends GetView<BottomNavigationController> {
+class BottomNavigationCustom extends StatelessWidget {
+  final Widget child;
+  final int indexSelect;
+
+  BottomNavigationCustom({required this.child, required this.indexSelect});
+
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Scaffold(
-        body: SafeArea(
-          child: IndexedStack(
-            index: controller.tabIndex.value,
-            children: [
-              HomeScreen(),
-              AboutLoginScreen(),
-            ],
+    return Scaffold(
+      body: SafeArea(child: child),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Get.toNamed(Routes.HOME);
+              break;
+            case 1:
+              Get.toNamed(Routes.TYPEHISTORY);
+              break;
+            case 2:
+              Get.toNamed(Routes.FAVOURITE);
+              break;
+            case 3:
+              Get.toNamed(Routes.PROFILE);
+              break;
+          }
+        },
+        currentIndex: indexSelect,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.amber[800],
+        elevation: 0,
+        items: [
+          _bottomNavigationBarItem(
+            iconImage: indexSelect == 0
+                ? IconConstants.iconHomeActive
+                : IconConstants.iconHome,
+            label: 'Home',
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: controller.changeTabIndex,
-          currentIndex: controller.tabIndex.value,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          elevation: 0,
-          items: [
-            _bottomNavigationBarItem(
-              iconImage: IconConstants.iconHome,
-              label: 'Home',
-            ),
-            _bottomNavigationBarItem(
-              iconImage: IconConstants.iconTypeBook,
-              label: 'News',
-            ),
-            _bottomNavigationBarItem(
-              iconImage: IconConstants.iconFavorite,
-              label: 'Alerts',
-            ),
-            _bottomNavigationBarItem(
-              iconImage: IconConstants.iconInfo,
-              label: 'Account',
-            ),
-          ],
-        ),
+          _bottomNavigationBarItem(
+            iconImage: IconConstants.iconTypeBook,
+            label: 'type',
+          ),
+          _bottomNavigationBarItem(
+            iconImage: IconConstants.iconFavorite,
+            label: 'detail',
+          ),
+          _bottomNavigationBarItem(
+            iconImage: IconConstants.iconInfo,
+            label: 'Account',
+          ),
+        ],
       ),
     );
   }
