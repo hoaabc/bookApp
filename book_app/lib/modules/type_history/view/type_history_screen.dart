@@ -44,7 +44,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text('Truyện HOT',
-                      style: TextAppStyle().textTitleTypeStyle()),
+                      style: TextAppStyle().textTitleContactStyle()),
                 ),
                 const SizedBox(height: 16),
                 Padding(
@@ -55,7 +55,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text('Truyện ngôn tình',
-                      style: TextAppStyle().textTitleTypeStyle()),
+                      style: TextAppStyle().textTitleContactStyle()),
                 ),
                 const SizedBox(height: 16),
                 Padding(
@@ -66,7 +66,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text('Truyện tiên hiệp',
-                      style: TextAppStyle().textTitleTypeStyle()),
+                      style: TextAppStyle().textTitleContactStyle()),
                 ),
                 const SizedBox(height: 16),
                 TypeHistory(lstItems: controller.getListHistory(), type: false),
@@ -74,7 +74,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text('Truyện tranh',
-                      style: TextAppStyle().textTitleTypeStyle()),
+                      style: TextAppStyle().textTitleContactStyle()),
                 ),
                 const SizedBox(height: 16),
                 TypeHistory(lstItems: controller.getListHistory(), type: false),

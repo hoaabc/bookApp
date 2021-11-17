@@ -30,18 +30,18 @@ class FavoriteScreen extends GetView<FavoriteController> {
                     elevation: 0.0,
                     backgroundColor: AppColor.primaryBackgroundColorLight,
                     bottom: TabBar(
-                      unselectedLabelStyle: TextAppStyle().textTitleTypeStyle(),
+                      unselectedLabelStyle: TextAppStyle().textTitleContactStyle(),
                       indicatorColor: AppColor.dividerColorLightBottomSheet,
 
                       // ignore: prefer_const_literals_to_create_immutables
                       tabs: [
                         Tab(
                             child: Text('Lịch sử',
-                                style: TextAppStyle().textTitleTypeStyle())),
+                                style: TextAppStyle().textTitleContactStyle())),
                         Tab(
                             child: Text(
                           'Theo dõi',
-                          style: TextAppStyle().textTitleTypeStyle(),
+                          style: TextAppStyle().textTitleContactStyle(),
                         )),
                       ],
                     ),
@@ -65,7 +65,7 @@ class FavoriteScreen extends GetView<FavoriteController> {
                                 const SizedBox(height: 32),
                                 Text('Đề xuất liên quan',
                                     textAlign: TextAlign.left,
-                                    style: TextAppStyle().textTitleTypeStyle()),
+                                    style: TextAppStyle().textTitleContactStyle()),
                                 const SizedBox(height: 32),
                                 _suggestData(
                                     lstData: controller.getListHistory())

@@ -48,7 +48,7 @@ class ProfileScreen extends GetView<ProfileController> {
                             children: [
                               Text('Thông tin liên hệ',
                                   style:
-                                      TextAppStyle().textTitleExpantedStyle()),
+                                      TextAppStyle().textPhoneNumberStyle()),
                               InkWell(
                                 onTap: () {
                                   controller.editValue(
@@ -59,7 +59,7 @@ class ProfileScreen extends GetView<ProfileController> {
                                         ? 'Lưu'
                                         : 'Chỉnh sửa',
                                     style: TextAppStyle()
-                                        .textTitleExpantedStyle()),
+                                        .textPhoneNumberStyle()),
                               ),
                             ]),
                         _detailEditText(

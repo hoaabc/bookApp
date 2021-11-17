@@ -41,7 +41,7 @@ extension _FavoriteChildernScreen on FavoriteScreen {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(itemModel.title,
-                            style: TextAppStyle().textTitleTypeStyle()),
+                            style: TextAppStyle().textTitleContactStyle()),
                         const SizedBox(height: 8),
                         Text(itemModel.content,
                             style: TextAppStyle().textTitleExpantedStyle())
@@ -62,7 +62,7 @@ extension _FavoriteChildernScreen on FavoriteScreen {
                   width: 16,
                 ),
                 Text(itemModel.title,
-                    style: TextAppStyle().textTitleTypeStyle())
+                    style: TextAppStyle().textTitleContactStyle())
               ],
             ),
     );

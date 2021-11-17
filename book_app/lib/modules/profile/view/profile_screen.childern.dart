@@ -14,7 +14,7 @@ extension _ProfileScreenChildren on ProfileScreen {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(lable, style: TextAppStyle().textTitleTypeStyle()),
+          Text(lable, style: TextAppStyle().textTitleContactStyle()),
           const SizedBox(
             height: 8,
           ),
@@ -56,7 +56,7 @@ extension _ProfileScreenChildren on ProfileScreen {
                 children: [
                   Text(lstInfoDetail[index].title,
                       textAlign: TextAlign.center,
-                      style: TextAppStyle().textTitleTypeStyle()),
+                      style: TextAppStyle().textTitleContactStyle()),
                   const Icon(
                     Icons.navigate_next_rounded,
                     size: 20,
