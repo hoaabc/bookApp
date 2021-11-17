@@ -10,7 +10,7 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeConfig.lightTheme,
-      initialRoute: Routes.LOGIN,
+      initialRoute: Routes.AUTH,
       getPages: routePages,
     );
   }

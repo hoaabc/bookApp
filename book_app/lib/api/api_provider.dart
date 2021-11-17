@@ -17,4 +17,7 @@ class ApiProvider extends BaseProvider {
   Future<Response> getUsers(String path) {
     return get(path);
   }
+    Future<Response> getAllAuthor(String path) {
+    return get(path);
+  }
 }

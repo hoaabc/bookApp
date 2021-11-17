@@ -1,3 +1,3 @@
 class ApiConstants {
-  static const baseUrl = 'https://reqres.in';
+  static const baseUrl = 'http://v2.hoabook.tk';
 }
