@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import '../../../api/api_repository.dart';
 import '../../../models/home_model/home_models.dart';
 import '../../../models/response/author_model/author_model.dart';
+import '../../../models/response/slider_model/slider_model.dart';
 import '../../../resource/assets_constant/images_constants.dart';
 
 class HomeController extends GetxController {
   final ApiRepository apiRepository;
   Rx<GetDataAuthor?> authorInfo = Rx<GetDataAuthor?>(null);
+  Rx<ListSlider?> apiSlider = Rx<ListSlider?>(null);
   HomeController({required this.apiRepository});
 
   @override
@@ -21,6 +23,12 @@ class HomeController extends GetxController {
     print(_authorInfo);
     authorInfo.value = _authorInfo;
   }
+    Future<void> loadSlider() async {
+    final _apiSlider = await apiRepository.getDataSlider();
+    print(_apiSlider);
+    apiSlider.value = _apiSlider;
+  }
+
 
   List<String> getListSliderImage() {
     final lstSlider = <String>[];

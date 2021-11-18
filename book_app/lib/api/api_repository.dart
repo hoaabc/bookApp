@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:book_app/models/response/slider_model/slider_model.dart';
+
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/author_model/author_model.dart';
@@ -43,10 +45,10 @@ class ApiRepository {
   }
 
 // get all slider
-  Future<GetDataAuthor?> getDataSlider() async {
+  Future<ListSlider?> getDataSlider() async {
     final res = await apiProvider.getAllSlider('api/sliders');
     if (res.statusCode == 200) {
-      return GetDataAuthor.fromJson(res.body);
+      return ListSlider.fromJson(res.body);
     }
   }
 }
