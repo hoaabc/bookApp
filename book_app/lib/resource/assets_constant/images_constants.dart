@@ -100,9 +100,14 @@ class ImageConstants {
 
   static const String empty_message =
       'lib/resource/assets_resources/images/empty_message_image.svg';
-      //
-        static const String imageBackgroundImage =
+  //
+  static const String imageBackgroundImage =
       'lib/resource/assets_resources/images/login_backgroud.png';
-  static const String imageSlider =
-      'lib/resource/assets_resources/images/slider_image_fetch.png';
+
+
+  // book app
+  static const String book_demo =
+      'lib/resource/assets_resources/images/2.0x/book-1.png';
+  static const String backgrpund_Home =
+      'lib/resource/assets_resources/images/3.0x/Backgrpund_Home.png';
 }

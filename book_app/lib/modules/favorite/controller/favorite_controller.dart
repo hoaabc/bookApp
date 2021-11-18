@@ -6,7 +6,7 @@ import '../../../resource/assets_constant/images_constants.dart';
 class FavoriteController extends GetxController {
   List<FavoriteModel> getListHistory() {
     final getListHistory = <FavoriteModel>[];
-    final test = FavoriteModel(ImageConstants.imageSlider, 'Truyen trinh tham',
+    final test = FavoriteModel(ImageConstants.appIcon_gotrust_AI, 'Truyen trinh tham',
         'truyen ngu ngon nhan gian');
     for (int i = 0; i < 6; i++) {
       getListHistory.add(test);

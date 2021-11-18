@@ -39,7 +39,7 @@ class ProfilePic extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(50.0),
                     child: FCoreImage(
-                      ImageConstants.imageSlider,
+                      ImageConstants.appIcon_gotrust_AI,
                       fit: BoxFit.cover,
                     ),
                   ),

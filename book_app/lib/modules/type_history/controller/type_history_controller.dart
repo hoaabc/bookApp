@@ -7,7 +7,7 @@ import '../../../resource/assets_constant/images_constants.dart';
 class TypeHistoryController extends GetxController {
   List<String> getListSliderImage() {
     final lstSlider = <String>[];
-    final test = ImageConstants.imageSlider;
+    final test = ImageConstants.appIcon_gotrust_AI;
     for (int i = 0; i < 5; i++) {
       lstSlider.add(test);
     }
@@ -28,7 +28,8 @@ class TypeHistoryController extends GetxController {
 
   List<ItemModel> getListHistory() {
     final getListHistory = <ItemModel>[];
-    final test = ItemModel('Truyen trinh tham', ImageConstants.imageSlider);
+    final test =
+        ItemModel('Truyen trinh tham', ImageConstants.appIcon_gotrust_AI);
     for (int i = 0; i < 6; i++) {
       getListHistory.add(test);
     }

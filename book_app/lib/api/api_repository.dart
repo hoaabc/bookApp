@@ -41,4 +41,12 @@ class ApiRepository {
       return GetDataAuthor.fromJson(res.body);
     }
   }
+
+// get all slider
+  Future<GetDataAuthor?> getDataSlider() async {
+    final res = await apiProvider.getAllSlider('api/sliders');
+    if (res.statusCode == 200) {
+      return GetDataAuthor.fromJson(res.body);
+    }
+  }
 }

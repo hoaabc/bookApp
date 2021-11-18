@@ -196,7 +196,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                   activeShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25))),
               onDone: () {
-               
+                Get.toNamed(Routes.HOME);
               },
               showSkipButton: true,
               showNextButton: true,

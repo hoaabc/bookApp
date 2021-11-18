@@ -44,19 +44,19 @@ class BottomNavigationCustom extends StatelessWidget {
           _bottomNavigationBarItem(
             iconImage: indexSelect == 0
                 ? IconConstants.iconHomeActive
-                : IconConstants.iconHome,
+                : IconConstants.CameraIcon,
             label: 'Home',
           ),
           _bottomNavigationBarItem(
-            iconImage: IconConstants.iconTypeBook,
+            iconImage: IconConstants.CameraIcon,
             label: 'type',
           ),
           _bottomNavigationBarItem(
-            iconImage: IconConstants.iconFavorite,
+            iconImage: IconConstants.CameraIcon,
             label: 'detail',
           ),
           _bottomNavigationBarItem(
-            iconImage: IconConstants.iconInfo,
+            iconImage: IconConstants.CameraIcon,
             label: 'Account',
           ),
         ],
