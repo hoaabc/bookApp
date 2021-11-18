@@ -34,12 +34,12 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                   color: AppColor.dividerColorLight,
                 ),
                 const SizedBox(height: 16),
-                CarouselWidget(
-                  aspectRatio: 1.75,
-                  showIndicator: true,
-                  borderRadius: 8,
-                  items: controller.getListSliderImage(),
-                ),
+                // CarouselWidget(
+                //   aspectRatio: 1.75,
+                //   showIndicator: true,
+                //   borderRadius: 8,
+                //   items: controller.getListSliderImage(),
+                // ),
                 const SizedBox(height: 16),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),

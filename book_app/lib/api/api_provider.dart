@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 
 import '../models/request/login_request.dart';
@@ -17,13 +16,18 @@ class ApiProvider extends BaseProvider {
   Future<Response> getUsers(String path) {
     return get(path);
   }
+
   // get author
-    Future<Response> getAllAuthor(String path) {
-    return get(path);
-  }
-  // get api/sliders
-      Future<Response> getAllSlider(String path) {
+  Future<Response> getAllAuthor(String path) {
     return get(path);
   }
 
+  // get api/sliders
+  Future<Response> getAllSlider(String path) {
+    return get(path);
+  }
+  // get book home
+    Future<Response> getAllBookHome(String path) {
+    return get(path);
+  }
 }

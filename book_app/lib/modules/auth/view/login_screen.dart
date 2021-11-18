@@ -9,7 +9,6 @@ import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../../../shared/widgets/text_input_login/text_input_login.dart';
 import '../controller/auth_controller.dart';
 
-
 class LoginScreen extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
@@ -61,14 +60,19 @@ class LoginScreen extends GetView<AuthController> {
                                   validator: controller.emailValidator,
                                   obscureText: false,
                                   inputType: TextInputType.emailAddress,
-                                  value: controller.email.value,
                                   hint: 'Email',
+                                  onChanged: (text) {
+                                    controller.setEmail(text);
+                                  },
                                 ),
                                 const SizedBox(height: 16),
                                 TextInputLogin(
                                   validator: controller.requiredValidator,
                                   obscureText: !controller.showWallet.value,
-                                  value: controller.passWord.value,
+
+                                  onChanged: (text) {
+                                    controller.setPass(text);
+                                  },
                                   suffixIcon: IconButton(
                                     onPressed: () {
                                       controller.ChageshowWallet(
@@ -86,9 +90,7 @@ class LoginScreen extends GetView<AuthController> {
                                 ),
                                 const SizedBox(height: 16),
                                 InkWell(
-                                  onTap: () {
-                                    
-                                  },
+                                  onTap: () {},
                                   child: Container(
                                     alignment: Alignment.bottomRight,
                                     child: Text('Quên mật khẩu?',
@@ -100,7 +102,6 @@ class LoginScreen extends GetView<AuthController> {
                                 const SizedBox(height: 32),
                                 inputInformationButton(
                                   onButtonPressed: () {
-                                    
                                     controller.onSavePressed();
                                   },
                                   titleButton: 'Đăng nhập',

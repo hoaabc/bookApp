@@ -22,12 +22,12 @@ class AboutLoginScreen extends GetView<AboutController> {
             const SizedBox(height: 16),
 
             const SizedBox(height: 16),
-            CarouselWidget(
-              aspectRatio: 1.75,
-              showIndicator: true,
-              borderRadius: 8,
-              items: controller.getListSliderImage(),
-            ),
+            // CarouselWidget(
+            //   aspectRatio: 1.75,
+            //   showIndicator: true,
+            //   borderRadius: 8,
+            //   items: controller.getListSliderImage(),
+            // ),
             // Wrap(
 
             // )

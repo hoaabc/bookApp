@@ -1,3 +1,4 @@
+import 'package:book_app/models/response/slider_model/slider_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class CarouselWidget extends StatefulWidget {
     this.showIndicator = true,
   }) : super(key: key);
   final double aspectRatio;
-  final List<String> items;
+  final List<SliderData> items;
   final Function(int index)? onTapItem;
   final Widget? leading;
   final bool showLabel;
@@ -50,8 +51,8 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                           borderRadius:
                               BorderRadius.circular(widget.borderRadius!),
                           child: FCoreImage(
-                            widget.items[index],
-                            fit: BoxFit.fill,
+                            widget.items[index].sliderUrl ?? '',
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -59,7 +60,6 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   },
                 ),
                 options: CarouselOptions(
-                  
                   aspectRatio: widget.aspectRatio,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal,

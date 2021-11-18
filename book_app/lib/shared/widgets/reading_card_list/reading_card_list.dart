@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../models/home_model/book_home_model.dart';
+import '../../../resource/assets_constant/images_constants.dart';
 import '../../constants/colors.dart';
 import '../button/two_side_rounded_button.dart';
+import '../image_widget/fcore_image.dart';
 
 class ReadingListCard extends StatelessWidget {
-  final String image;
-  final String title;
-  final String auth;
-  final double rating;
+  final BookDetail item;
   final Function() pressDetails;
 
   const ReadingListCard({
     Key? key,
-    required this.image,
-    required this.title,
-    required this.auth,
-    required this.rating,
+    required this.item,
     required this.pressDetails,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 24, bottom: 40),
       height: 245,
-      width: 202,
+      width: (Get.width - 48) / 2,
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -46,22 +43,23 @@ class ReadingListCard extends StatelessWidget {
               ),
             ),
           ),
-          Image.asset(
-            image,
+          FCoreImage(
+            //item.bookImage ??
+            ImageConstants.book_demo,
             width: 150,
           ),
           Positioned(
             top: 160,
             child: Container(
-              height: 85,
+              height: 90,
               width: 202,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text('$title\n',
-                        textAlign: TextAlign.center,
+                    child: Text('${item.name ?? 'Tay du ky'}\n',
+                        textAlign: TextAlign.start,
                         style: TextStyle(
                           color: AppColor.kLightBlackColor,
                           fontWeight: FontWeight.bold,
@@ -69,9 +67,13 @@ class ReadingListCard extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(auth,
-                        textAlign: TextAlign.center,
+                    child: Text(item.description ?? 'Câu truyện vui nhộn',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.start,
                         style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
                           color: AppColor.kLightBlackColor,
                         )),
                   ),

@@ -1,19 +1,19 @@
-class ListSlider {
+class BookList {
   int? currentPage;
-  List<SliderData>? data;
+  List<BookDetail>? data;
   String? firstPageUrl;
   int? from;
   int? lastPage;
   String? lastPageUrl;
   List<Links>? links;
-  Null nextPageUrl;
+  String? nextPageUrl;
   String? path;
   int? perPage;
   Null prevPageUrl;
   int? to;
   int? total;
 
-  ListSlider(
+  BookList(
       {this.currentPage,
       this.data,
       this.firstPageUrl,
@@ -28,12 +28,12 @@ class ListSlider {
       this.to,
       this.total});
 
-  ListSlider.fromJson(Map<String, dynamic> json) {
+  BookList.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      data = <SliderData>[];
+      data = <BookDetail>[];
       json['data'].forEach((v) {
-        data!.add(SliderData.fromJson(v));
+        data!.add(BookDetail.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -77,31 +77,79 @@ class ListSlider {
   }
 }
 
-class SliderData {
+class BookDetail {
   int? id;
   String? name;
-  String? sliderUrl;
+  String? bookImage;
+  String? description;
+  int? likeCount;
+  int? viewCount;
+  String? contentText;
+  String? contentUrl;
+  int? chapterCount;
+  String? status;
+  int? authorId;
+  int? isBookSeries;
+  int? ratingPoint;
   String? createdAt;
   int? createdBy;
+  String? publishedAt;
 
-  SliderData(
-      {this.id, this.name, this.sliderUrl, this.createdAt, this.createdBy});
+  BookDetail(
+      {this.id,
+      this.name,
+      this.bookImage,
+      this.description,
+      this.likeCount,
+      this.viewCount,
+      this.contentText,
+      this.contentUrl,
+      this.chapterCount,
+      this.status,
+      this.authorId,
+      this.isBookSeries,
+      this.ratingPoint,
+      this.createdAt,
+      this.createdBy,
+      this.publishedAt});
 
-  SliderData.fromJson(Map<String, dynamic> json) {
+  BookDetail.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    sliderUrl = json['slider_url'];
+    bookImage = json['book_image'];
+    description = json['description'];
+    likeCount = json['like_count'];
+    viewCount = json['view_count'];
+    contentText = json['content_text'];
+    contentUrl = json['content_url'];
+    chapterCount = json['chapter_count'];
+    status = json['status'];
+    authorId = json['author_id'];
+    isBookSeries = json['is_book_series'];
+    ratingPoint = json['rating_point'];
     createdAt = json['created_at'];
     createdBy = json['created_by'];
+    publishedAt = json['published_at'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
     data['name'] = name;
-    data['slider_url'] = sliderUrl;
+    data['book_image'] = bookImage;
+    data['description'] = description;
+    data['like_count'] = likeCount;
+    data['view_count'] = viewCount;
+    data['content_text'] = contentText;
+    data['content_url'] = contentUrl;
+    data['chapter_count'] = chapterCount;
+    data['status'] = status;
+    data['author_id'] = authorId;
+    data['is_book_series'] = isBookSeries;
+    data['rating_point'] = ratingPoint;
     data['created_at'] = createdAt;
     data['created_by'] = createdBy;
+    data['published_at'] = publishedAt;
     return data;
   }
 }

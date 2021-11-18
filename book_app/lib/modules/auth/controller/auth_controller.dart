@@ -1,7 +1,9 @@
-import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../api/api.dart';
+import '../../../models/models.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/utils/product_form_ultilies.dart';
 
 class AuthController extends GetxController with ProductForm {
@@ -10,13 +12,32 @@ class AuthController extends GetxController with ProductForm {
     showWallet.value = !changeshowWallet;
   }
 
-  Rx<String> email = Rx<String>('');
-  Rx<String> passWord = Rx<String>('');
+  RxString email = RxString('');
+  RxString passWord = RxString('');
+
+  Future<void> setPass(String text) async {
+    email.value = text;
+  }
+
+  Future<void> setEmail(String text) async {
+    passWord.value = text;
+  }
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Function? onSavePressed() {
     if (formKey.currentState?.validate() ?? false) {
-      Get.toNamed(Routes.ONBOARDING_SCREEN);
+      final ApiRepository apiRepository = ApiRepository(apiProvider: ApiProvider());
+      apiRepository
+          .login(LoginRequest(email: email.value, password: passWord.value))
+          .then((value) {
+        if (value != null) {
+          Get.toNamed(Routes.ONBOARDING_SCREEN);
+        } else {
+          ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
+            content: Text('Tài khoản hoặc mật khẩu không chính xác'),
+          ));
+        }
+      });
     }
     return null;
   }

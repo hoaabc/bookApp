@@ -1,12 +1,11 @@
 import 'dart:async';
-
-import 'package:book_app/models/response/slider_model/slider_model.dart';
-
+import '../models/home_model/book_home_model.dart';
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/author_model/author_model.dart';
 import '../models/response/login_response.dart';
 import '../models/response/register_response.dart';
+import '../models/response/slider_model/slider_model.dart';
 import '../models/response/users_response.dart';
 import 'api.dart';
 
@@ -16,21 +15,26 @@ class ApiRepository {
   final ApiProvider apiProvider;
 
   Future<LoginResponse?> login(LoginRequest data) async {
-    final res = await apiProvider.login('/api/login', data);
+    final res =
+        await apiProvider.login('${ApiConstants.baseUrl}api/login', data);
     if (res.statusCode == 200) {
       return LoginResponse.fromJson(res.body);
+    } else {
+      return null;
     }
   }
 
   Future<RegisterResponse?> register(RegisterRequest data) async {
-    final res = await apiProvider.register('/api/register', data);
+    final res =
+        await apiProvider.register('${ApiConstants.baseUrl}api/authors', data);
     if (res.statusCode == 200) {
       return RegisterResponse.fromJson(res.body);
     }
   }
 
   Future<UsersResponse?> getUsers() async {
-    final res = await apiProvider.getUsers('/api/users?page=1&per_page=12');
+    final res = await apiProvider
+        .getUsers('${ApiConstants.baseUrl}api/users?page=1&per_page=12');
     if (res.statusCode == 200) {
       return UsersResponse.fromJson(res.body);
     }
@@ -38,7 +42,8 @@ class ApiRepository {
 
 // get data author
   Future<GetDataAuthor?> getDataAuthors() async {
-    final res = await apiProvider.getAllAuthor('api/authors');
+    final res =
+        await apiProvider.getAllAuthor('${ApiConstants.baseUrl}api/authors');
     if (res.statusCode == 200) {
       return GetDataAuthor.fromJson(res.body);
     }
@@ -46,9 +51,19 @@ class ApiRepository {
 
 // get all slider
   Future<ListSlider?> getDataSlider() async {
-    final res = await apiProvider.getAllSlider('api/sliders');
+    final res =
+        await apiProvider.getAllSlider('${ApiConstants.baseUrl}api/sliders');
     if (res.statusCode == 200) {
       return ListSlider.fromJson(res.body);
+    }
+  }
+
+// boook Home getAllBookHome
+  Future<BookList?> getDataAllBookHome() async {
+    final res =
+        await apiProvider.getAllBookHome('${ApiConstants.baseUrl}api/books');
+    if (res.statusCode == 200) {
+      return BookList.fromJson(res.body);
     }
   }
 }
