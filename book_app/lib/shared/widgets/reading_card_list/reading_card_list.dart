@@ -8,12 +8,12 @@ import '../button/two_side_rounded_button.dart';
 import '../image_widget/fcore_image.dart';
 
 class ReadingListCard extends StatelessWidget {
-  final BookDetail item;
+  final BookDetail items;
   final Function() pressDetails;
 
   const ReadingListCard({
     Key? key,
-    required this.item,
+    required this.items,
     required this.pressDetails,
   }) : super(key: key);
 
@@ -51,14 +51,14 @@ class ReadingListCard extends StatelessWidget {
           Positioned(
             top: 160,
             child: Container(
-              height: 90,
+              height: 85,
               width: 202,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text('${item.name ?? 'Tay du ky'}\n',
+                    child: Text(items.name ?? '',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           color: AppColor.kLightBlackColor,
@@ -67,13 +67,11 @@ class ReadingListCard extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(item.description ?? 'Câu truyện vui nhộn',
+                    child: Text(items.description ?? 'Câu truyện vui nhộn',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
                           color: AppColor.kLightBlackColor,
                         )),
                   ),

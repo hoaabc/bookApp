@@ -12,6 +12,8 @@ class AuthController extends GetxController with ProductForm {
     showWallet.value = !changeshowWallet;
   }
 
+  ApiRepository apiRepository;
+  AuthController(this.apiRepository);
   RxString email = RxString('');
   RxString passWord = RxString('');
 
@@ -26,7 +28,6 @@ class AuthController extends GetxController with ProductForm {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Function? onSavePressed() {
     if (formKey.currentState?.validate() ?? false) {
-      final ApiRepository apiRepository = ApiRepository(apiProvider: ApiProvider());
       apiRepository
           .login(LoginRequest(email: email.value, password: passWord.value))
           .then((value) {

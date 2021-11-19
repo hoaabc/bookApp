@@ -33,7 +33,7 @@ class BookList {
     if (json['data'] != null) {
       data = <BookDetail>[];
       json['data'].forEach((v) {
-        data!.add(BookDetail.fromJson(v));
+        data?.add(BookDetail.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -43,7 +43,7 @@ class BookList {
     if (json['links'] != null) {
       links = <Links>[];
       json['links'].forEach((v) {
-        links!.add(Links.fromJson(v));
+        links?.add(Links.fromJson(v));
       });
     }
     nextPageUrl = json['next_page_url'];
@@ -58,14 +58,14 @@ class BookList {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['current_page'] = currentPage;
     if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+      data['data'] = this.data?.map((v) => v.toJson()).toList();
     }
     data['first_page_url'] = firstPageUrl;
     data['from'] = from;
     data['last_page'] = lastPage;
     data['last_page_url'] = lastPageUrl;
     if (links != null) {
-      data['links'] = links!.map((v) => v.toJson()).toList();
+      data['links'] = links?.map((v) => v.toJson()).toList();
     }
     data['next_page_url'] = nextPageUrl;
     data['path'] = path;

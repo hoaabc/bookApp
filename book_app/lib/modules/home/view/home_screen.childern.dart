@@ -7,8 +7,10 @@ extension _OnboardingChildern on HomeScreen {
         runSpacing: 16,
         children: List<Widget>.generate(lstBookItem.length, (index) {
           return ReadingListCard(
-            item: lstBookItem[index],
-            pressDetails: () {},
+            items: lstBookItem[index],
+            pressDetails: () {
+              print("Press");
+            },
           );
         }));
   }

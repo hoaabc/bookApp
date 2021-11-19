@@ -14,16 +14,16 @@ Future<void> main() async {
 
 void configLoading() {
   EasyLoading.instance
-    ..indicatorType = EasyLoadingIndicatorType.threeBounce
+    ..displayDuration = const Duration(milliseconds: 2000)
+    ..indicatorType = EasyLoadingIndicatorType.circle
     ..loadingStyle = EasyLoadingStyle.custom
-    // ..indicatorSize = 45.0
+    ..indicatorSize = 45.0
     ..radius = 10.0
-    // ..progressColor = Colors.yellow
-    ..backgroundColor = AppColor.NotificationExpiryColor
-    ..indicatorColor = hexToColor('#64DEE0')
-    ..textColor = hexToColor('#64DEE0')
-    // ..maskColor = Colors.red
-    ..userInteractions = false
-    ..dismissOnTap = false
-    ..animationStyle = EasyLoadingAnimationStyle.scale;
+    ..progressColor = Colors.white
+    ..backgroundColor = Colors.blue[100]
+    ..indicatorColor = Colors.blueGrey
+    ..textColor = AppColor.primaryColorLight
+    ..maskColor = Colors.blue.withOpacity(0.5)
+    ..userInteractions = true
+    ..dismissOnTap = false;
 }

@@ -42,8 +42,7 @@ class ApiRepository {
 
 // get data author
   Future<GetDataAuthor?> getDataAuthors() async {
-    final res =
-        await apiProvider.getAllAuthor('${ApiConstants.baseUrl}api/authors');
+    final res = await apiProvider.getAllAuthor('api/authors');
     if (res.statusCode == 200) {
       return GetDataAuthor.fromJson(res.body);
     }
@@ -51,17 +50,17 @@ class ApiRepository {
 
 // get all slider
   Future<ListSlider?> getDataSlider() async {
-    final res =
-        await apiProvider.getAllSlider('${ApiConstants.baseUrl}api/sliders');
+    final res = await apiProvider.getAllSlider('api/sliders');
     if (res.statusCode == 200) {
       return ListSlider.fromJson(res.body);
+    } else {
+      print(res);
     }
   }
 
 // boook Home getAllBookHome
   Future<BookList?> getDataAllBookHome() async {
-    final res =
-        await apiProvider.getAllBookHome('${ApiConstants.baseUrl}api/books');
+    final res = await apiProvider.getAllBookHome('api/books');
     if (res.statusCode == 200) {
       return BookList.fromJson(res.body);
     }

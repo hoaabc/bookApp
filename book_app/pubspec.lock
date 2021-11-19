@@ -86,7 +86,7 @@ packages:
     source: hosted
     version: "1.0.3"
   dots_indicator:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dots_indicator
       url: "https://pub.dartlang.org"

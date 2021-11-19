@@ -2,7 +2,6 @@ import 'package:book_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 /// Define color at theme_data.dart
 class TextAppStyle {
   static const String appFont = 'Mulish';
@@ -29,8 +28,9 @@ class TextAppStyle {
       fontFamily: 'Montserrat',
     );
   }
+
 // style app
- TextStyle textFullNameStyle() {
+  TextStyle textFullNameStyle() {
     return TextStyle(
       color: AppColor.primaryTextColorLight,
       fontSize: 17,
@@ -216,33 +216,44 @@ class TextAppStyle {
         fontWeight: FontWeight.w400,
         fontFamily: 'Pass through');
   }
+
   // onbrading
-    TextStyle textDescriptionStyle() {
+  TextStyle textDescriptionStyle() {
     return TextStyle(
-        color: AppColor.secondTextColorLight,
+        color: AppColor.primaryTextColorLight,
         fontSize: 20,
         fontWeight: FontWeight.w700,
         fontFamily: 'Pass through');
   }
-    TextStyle texttitleStyle() {
+
+  TextStyle texttitleStyle() {
     return TextStyle(
         color: AppColor.secondTextColorLight,
         fontSize: 16,
         fontWeight: FontWeight.w400,
         fontFamily: 'Pass through');
   }
-   TextStyle textNextStyle() {
+
+  TextStyle textNextStyle() {
     return TextStyle(
         color: AppColor.secondTextColorLight,
         fontSize: 16,
         fontWeight: FontWeight.w600,
         fontFamily: 'Pass through');
   }
-    TextStyle textSkipStyle() {
+
+  TextStyle textSkipStyle() {
     return TextStyle(
         color: AppColor.primaryTextColorLight,
         fontSize: 16,
         fontWeight: FontWeight.w600,
+        fontFamily: 'Pass through');
+  }
+  TextStyle textAuthorBookStyle() {
+    return TextStyle(
+        color: AppColor.fifthTextColorLight,
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
         fontFamily: 'Pass through');
   }
 }

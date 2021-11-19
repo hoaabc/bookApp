@@ -1,5 +1,6 @@
-import 'package:book_app/modules/detail/controller/detail_controller.dart';
 import 'package:get/get.dart';
+
+import '../controller/detail_controller.dart';
 
 class DetailBinding extends Bindings {
   @override

@@ -17,47 +17,55 @@ class HomeScreen extends GetView<HomeController> {
     return Scaffold(
       body: BottomNavigationCustom(
         // ignore: sort_child_properties_last
-        child: Obx(
-          () => Scrollbar(
-            child: Container(
-              child: Column(
-                children: [
-                  controller.getListSliderImage().isNotEmpty
-                      ? CarouselWidget(
-                          aspectRatio: 1.75,
-                          showIndicator: true,
-                          borderRadius: 8,
-                          items: controller.getListSliderImage(),
-                        )
-                      : Container(),
-                  Expanded(
-                    child: SingleChildScrollView(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 30),
-                        controller.getListBook().isNotEmpty
-                            ? Container(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 16),
-                                width: Get.width,
-                                child: _genListBookItem(
-                                    lstBookItem: controller.getListBook()),
-                              )
-                            : Container(
-                                child: Center(
-                                  child: Text('Loading data',
-                                      style: TextAppStyle()
-                                          .textTitleContactStyle()),
-                                ),
-                              ),
-                        const SizedBox(height: 40),
-                      ],
-                    )),
-                  ),
-                ],
+        child: Container(
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Obx(
+                () => controller.apiSlider.value?.data != null
+                    ? CarouselWidget(
+                        aspectRatio: 2.3,
+                        showIndicator: true,
+                        borderRadius: 8,
+                        items: controller.apiSlider.value?.data ?? [],
+                      )
+                    : Container(),
               ),
-            ),
+              Expanded(
+                child: SingleChildScrollView(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Text('Các truyện mới',
+                          style: TextAppStyle().textDescriptionStyle()),
+                    ),
+                    const SizedBox(height: 12),
+                    Obx(
+                      () => controller.apiBookHome.value?.data != null
+                          ? Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              width: Get.width,
+                              child: _genListBookItem(
+                                  lstBookItem:
+                                      controller.apiBookHome.value?.data ?? []),
+                            )
+                          : Container(),
+                    )
+                    // : Container(
+                    //     child: Center(
+                    //       child: Text('Loading data',
+                    //           style:
+                    //               TextAppStyle().textTitleContactStyle()),
+                    //     ),
+                    //   ),
+                  ],
+                )),
+              ),
+            ],
           ),
         ),
         indexSelect: 0,
