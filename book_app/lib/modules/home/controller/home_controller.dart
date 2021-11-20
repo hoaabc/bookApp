@@ -11,11 +11,12 @@ class HomeController extends GetxController {
   Rx<GetDataAuthor?> authorInfo = Rx<GetDataAuthor?>(null);
   Rx<ListSlider?> apiSlider = Rx<ListSlider?>(null);
   Rx<BookList?> apiBookHome = Rx<BookList?>(null);
-  HomeController(this.apiRepository);
+  HomeController(this.apiRepository) {
+    loadData();
+  }
   @override
   Future<void> onInit() async {
     super.onInit();
-    await loadData();
   }
 
   Future<void> loadData() async {

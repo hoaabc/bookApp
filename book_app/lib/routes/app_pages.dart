@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
 import '../modules/auth/view/login_screen.dart';
+import '../modules/dashboard/binding/dashboard_binding.dart';
+import '../modules/dashboard/view/dashboard_screen.dart';
 import '../modules/detail/binding/detail_binding.dart';
 import '../modules/detail/view/detail_screen.dart';
 import '../modules/favorite/binding/favorite_binding.dart';
@@ -19,10 +21,10 @@ part 'app_routes.dart';
 
 final routePages = [
   GetPage(
-      name: Routes.AUTH,
-      page: () => LoginScreen(),
-      binding: AuthBinding(),
-      ),
+    name: Routes.AUTH,
+    page: () => LoginScreen(),
+    binding: AuthBinding(),
+  ),
   GetPage(
       name: Routes.TYPEHISTORY,
       page: () => TypeHistoryScreen(),
@@ -40,8 +42,15 @@ final routePages = [
       name: Routes.PROFILE,
       page: () => ProfileScreen(),
       binding: ProfileBinding()),
-    GetPage(
+  GetPage(
       name: Routes.ONBOARDING_SCREEN,
       page: () => OnboardingScreen(),
       binding: OnboardingBinding()),
+  GetPage(name: Routes.DASHBOARD, page: () => DashBoardScreen(), bindings: [
+    DashboardBinding(),
+    HomeBinding(),
+    DetailBinding(),
+    ProfileBinding(),
+    FavoriteBinding()
+  ]),
 ];

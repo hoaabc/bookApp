@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/home_model/book_home_model.dart';
-import '../../../shared/bottom_navigation/view/bottom_navigation_screen.dart';
+
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/carousel/carousel_widget.dart';
 import '../../../shared/widgets/reading_card_list/reading_card_list.dart';
@@ -15,9 +15,7 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BottomNavigationCustom(
-        // ignore: sort_child_properties_last
-        child: Container(
+      body:  Container(
           child: Column(
             children: [
               const SizedBox(height: 30),
@@ -68,8 +66,7 @@ class HomeScreen extends GetView<HomeController> {
             ],
           ),
         ),
-        indexSelect: 0,
-      ),
+      
     );
   }
 }

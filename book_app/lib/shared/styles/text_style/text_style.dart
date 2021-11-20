@@ -256,4 +256,20 @@ class TextAppStyle {
         fontWeight: FontWeight.w400,
         fontFamily: 'Pass through');
   }
+    TextStyle textBottomBarActiveStyle() {
+    return TextStyle(
+      color: AppColor.eightTextColorLight,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  // menu un active
+  TextStyle textBottomBarUnActiveStyle() {
+    return TextStyle(
+      color: AppColor.fifthTextColorLight,
+      fontSize: 10,
+      fontWeight: FontWeight.w400,
+    );
+  }
 }
