@@ -1,8 +1,10 @@
 import 'dart:async';
+
 import '../models/home_model/book_home_model.dart';
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/author_model/author_model.dart';
+import '../models/response/book_detail_model/book_detail_model.dart';
 import '../models/response/login_response.dart';
 import '../models/response/register_response.dart';
 import '../models/response/slider_model/slider_model.dart';
@@ -63,6 +65,16 @@ class ApiRepository {
     final res = await apiProvider.getAllBookHome('api/books');
     if (res.statusCode == 200) {
       return BookList.fromJson(res.body);
+    }
+  }
+
+  // get book detail
+  Future<BookDetailModel?> getDataBookDetail({required String idBook}) async {
+    final res = await apiProvider.getAllBookDetail('api/books/$idBook');
+    if (res.statusCode == 200) {
+      return BookDetailModel.fromJson(res.body);
+    } else {
+      return null;
     }
   }
 }

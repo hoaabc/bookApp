@@ -23,7 +23,7 @@ class BottomNavigationCustom extends StatelessWidget {
               Get.toNamed(Routes.HOME);
               break;
             case 1:
-              Get.toNamed(Routes.TYPEHISTORY);
+              Get.toNamed(Routes.DETAIL);
               break;
             case 2:
               Get.toNamed(Routes.FAVOURITE);

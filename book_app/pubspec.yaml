@@ -43,6 +43,8 @@ dependencies:
   introduction_screen: ^2.1.0
   #clean code
   lint: ^1.7.2
+  readmore: ^2.1.0
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,8 @@ flutter:
     - lib/resource/assets_resources/images/
     - lib/resource/assets_resources/images/2.0x/
     - lib/resource/assets_resources/images/3.0x/
+    - lib/resource/assets_resources/images/image_icon/
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

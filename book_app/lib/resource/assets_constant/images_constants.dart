@@ -104,10 +104,14 @@ class ImageConstants {
   static const String imageBackgroundImage =
       'lib/resource/assets_resources/images/login_backgroud.png';
 
-
   // book app
   static const String book_demo =
       'lib/resource/assets_resources/images/2.0x/book-1.png';
   static const String backgrpund_Home =
       'lib/resource/assets_resources/images/3.0x/Backgrpund_Home.png';
+  // image icon
+  static const String icon_view_count =
+      'lib/resource/assets_resources/images/image_icon/view_count.png';
+  static const String icon_like_count =
+      'lib/resource/assets_resources/images/image_icon/like_count.png';
 }

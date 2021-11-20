@@ -26,8 +26,13 @@ class ApiProvider extends BaseProvider {
   Future<Response> getAllSlider(String path) {
     return get(path);
   }
+
   // get book home
-    Future<Response> getAllBookHome(String path) {
+  Future<Response> getAllBookHome(String path) {
+    return get(path);
+  }
+
+  Future<Response> getAllBookDetail(String path) {
     return get(path);
   }
 }
