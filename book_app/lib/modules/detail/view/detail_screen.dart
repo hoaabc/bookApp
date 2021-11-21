@@ -1,3 +1,5 @@
+import 'package:book_app/modules/detail/view/reading_chapter_screen.dart';
+import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -106,10 +108,7 @@ class DetailScreen extends GetView<DetailController> {
                               Container(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
-                                // child: SingleChildScrollView(
-
-                                //     //_tabMedicalHistory(context),
-                                //     ),
+                                child: _listChapters(),
                               ),
                             ],
                           ),

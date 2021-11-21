@@ -1,6 +1,7 @@
+import 'package:book_app/models/response/favorite_models/favorite_model.dart';
 import 'package:get/get.dart';
 
-import '../../../models/favorite_models/favorite_model.dart';
+
 import '../../../resource/assets_constant/images_constants.dart';
 
 class FavoriteController extends GetxController {

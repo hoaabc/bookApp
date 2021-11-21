@@ -1,7 +1,7 @@
+import 'package:book_app/models/response/home_model/book_home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/home_model/book_home_model.dart';
 
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/carousel/carousel_widget.dart';

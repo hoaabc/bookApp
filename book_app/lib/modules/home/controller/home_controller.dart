@@ -1,8 +1,9 @@
+import 'package:book_app/models/response/home_model/book_home_model.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../../../api/api_repository.dart';
-import '../../../models/home_model/book_home_model.dart';
+
 import '../../../models/response/author_model/author_model.dart';
 import '../../../models/response/slider_model/slider_model.dart';
 

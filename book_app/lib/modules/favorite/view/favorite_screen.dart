@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/favorite_models/favorite_model.dart';
+import '../../../models/response/favorite_models/favorite_model.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/appbar/app_bar_widget.dart';

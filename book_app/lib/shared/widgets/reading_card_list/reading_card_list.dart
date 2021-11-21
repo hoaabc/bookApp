@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/home_model/book_home_model.dart';
+import '../../../models/response/home_model/book_home_model.dart';
 import '../../../resource/assets_constant/images_constants.dart';
 import '../../constants/colors.dart';
 import '../button/two_side_rounded_button.dart';

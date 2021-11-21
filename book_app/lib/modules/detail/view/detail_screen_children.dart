@@ -90,7 +90,8 @@ extension _DetailChildern on DetailScreen {
           )
         ]));
   }
-Widget _readMoreDescription(
+
+  Widget _readMoreDescription(
       {required String description,
       required int rating_point,
       required String status}) {
@@ -134,5 +135,43 @@ Widget _readMoreDescription(
             ),
           ],
         ));
+  }
+
+  Widget _listChapters() {
+    return Container(
+        child: Scrollbar(
+      child: ListView.separated(
+          padding: const EdgeInsets.all(0),
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ReadingChapter()),
+                );
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Chapter', style: TextAppStyle().textWalletStyle()),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text('Date',
+                        style: TextAppStyle().textContentOnboardingStyle()),
+                  ],
+                ),
+              ),
+            );
+          },
+          separatorBuilder: (context, index) => Container(
+              height: 1, color: AppColor.dividerColorLightBottomSheet),
+          itemCount: 10),
+    ));
   }
 }

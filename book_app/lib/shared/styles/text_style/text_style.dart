@@ -1,6 +1,7 @@
-import 'package:book_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../constants/colors.dart';
 
 /// Define color at theme_data.dart
 class TextAppStyle {
@@ -50,7 +51,7 @@ class TextAppStyle {
     return TextStyle(
       color: AppColor.primaryTextColorLight,
       fontSize: 16,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w400,
     );
   }
 

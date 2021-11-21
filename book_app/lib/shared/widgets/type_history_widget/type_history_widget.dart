@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/home_model/home_models.dart';
+import '../../../models/response/home_model/home_models.dart';
 import '../../../routes/app_pages.dart';
 import '../../styles/text_style/text_style.dart';
 import '../image_widget/fcore_image.dart';

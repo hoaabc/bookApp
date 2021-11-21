@@ -1,3 +1,4 @@
+import 'package:book_app/modules/detail/view/reading_chapter_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -33,7 +34,13 @@ final routePages = [
   GetPage(
       name: Routes.DETAIL,
       page: () => DetailScreen(),
-      binding: DetailBinding()),
+      binding: DetailBinding(),
+      children: [
+        GetPage(
+          name: Routes.VIEWPDF,
+          page: () => const ReadingChapter(),
+        ),
+      ]),
   GetPage(
       name: Routes.FAVOURITE,
       page: () => FavoriteScreen(),

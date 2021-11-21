@@ -45,6 +45,8 @@ dependencies:
   lint: ^1.7.2
   readmore: ^2.1.0
   flutter_rating_bar: ^4.0.0
+  flutter_pdfview: ^1.2.1
+  path_provider: ^2.0.7
 
 dev_dependencies:
   flutter_test:
