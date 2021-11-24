@@ -39,6 +39,7 @@ class DetailController extends GetxController {
   }
 
   Future<File> createFileOfPdfUrl() async {
+  
     final Completer<File> completer = Completer();
     try {
       final url = apiBookInfo.value?.contentUrl;

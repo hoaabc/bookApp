@@ -87,7 +87,8 @@ extension _DetailChildern on DetailScreen {
                     ])
               ],
             ),
-          )
+          ),
+         
         ]));
   }
 

@@ -1,11 +1,10 @@
-import 'dart:io';
 
-import 'package:book_app/resource/assets_constant/icon_constants.dart';
-import 'package:book_app/shared/widgets/image_widget/fcore_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:get/get.dart';
 
+import '../../../resource/assets_constant/icon_constants.dart';
+import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../controller/detail_controller.dart';
 
 class ReadingChapter extends GetView<DetailController> {

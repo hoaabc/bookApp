@@ -113,6 +113,7 @@ class DetailScreen extends GetView<DetailController> {
                             ],
                           ),
                         ),
+                        Container(color: Colors.black, height: 100)
                       ],
                     ),
                   )
