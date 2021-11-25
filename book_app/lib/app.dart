@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       theme: ThemeConfig.lightTheme,
-      initialRoute: Routes.DASHBOARD,
+      initialRoute: Routes.AUTH,
       getPages: routePages,
       builder: EasyLoading.init(),
     );

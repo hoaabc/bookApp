@@ -6,8 +6,8 @@ class LoginRequest {
     required this.password,
   });
 
-  String email;
-  String password;
+  final String email;
+  final String password;
 
   factory LoginRequest.fromRawJson(String str) =>
       LoginRequest.fromJson(json.decode(str));

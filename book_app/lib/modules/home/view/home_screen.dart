@@ -1,4 +1,4 @@
-import 'package:book_app/models/response/home_model/book_home_model.dart';
+// import 'package:book_app/models/response/home_model/book_home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +8,7 @@ import '../../../shared/widgets/carousel/carousel_widget.dart';
 import '../../../shared/widgets/reading_card_list/reading_card_list.dart';
 import '../controller/home_controller.dart';
 
-part 'home_screen.childern.dart';
+//part 'home_screen.childern.dart';
 
 class HomeScreen extends GetView<HomeController> {
   HomeScreen({Key? key}) : super(key: key);
@@ -19,16 +19,16 @@ class HomeScreen extends GetView<HomeController> {
           child: Column(
             children: [
               const SizedBox(height: 30),
-              Obx(
-                () => controller.apiSlider.value?.data != null
-                    ? CarouselWidget(
-                        aspectRatio: 2.3,
-                        showIndicator: true,
-                        borderRadius: 8,
-                        items: controller.apiSlider.value?.data ?? [],
-                      )
-                    : Container(),
-              ),
+              // Obx(
+              //   () => controller.apiSlider.value?.data != null
+              //       ? CarouselWidget(
+              //           aspectRatio: 2.3,
+              //           showIndicator: true,
+              //           borderRadius: 8,
+              //           items: controller.apiSlider.value?.data ?? [],
+              //         )
+              //       : Container(),
+              // ),
               Expanded(
                 child: SingleChildScrollView(
                     child: Column(
@@ -41,18 +41,18 @@ class HomeScreen extends GetView<HomeController> {
                           style: TextAppStyle().textDescriptionStyle()),
                     ),
                     const SizedBox(height: 12),
-                    Obx(
-                      () => controller.apiBookHome.value?.data != null
-                          ? Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              width: Get.width,
-                              child: _genListBookItem(
-                                  lstBookItem:
-                                      controller.apiBookHome.value?.data ?? []),
-                            )
-                          : Container(),
-                    )
+                    // Obx(
+                    //   () => controller.apiBookHome.value?.data != null
+                    //       ? Container(
+                    //           padding:
+                    //               const EdgeInsets.symmetric(horizontal: 16),
+                    //           width: Get.width,
+                    //           child: _genListBookItem(
+                    //               lstBookItem:
+                    //                   controller.apiBookHome.value?.data ?? []),
+                    //         )
+                    //       : Container(),
+                    // )
                     // : Container(
                     //     child: Center(
                     //       child: Text('Loading data',

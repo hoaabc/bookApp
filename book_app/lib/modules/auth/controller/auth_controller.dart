@@ -1,50 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../api/api.dart';
 import '../../../models/models.dart';
 import '../../../routes/app_pages.dart';
+import '../../../shared/constants/storage.dart';
+import '../../../shared/utils/focus.dart';
 import '../../../shared/utils/product_form_ultilies.dart';
 
 class AuthController extends GetxController with ProductForm {
+  Rx<LoginResponseUIModel?> apiLoginData = Rx<LoginResponseUIModel?>(null);
   RxBool showWallet = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
   Future<void> ChageshowWallet(bool changeshowWallet) async {
     showWallet.value = !changeshowWallet;
   }
 
   ApiRepository apiRepository;
-  AuthController(this.apiRepository);
+  AuthController({required this.apiRepository});
   RxString email = RxString('');
   RxString passWord = RxString('');
 
   Future<void> setPass(String text) async {
-    email.value = text;
-  }
-
-  Future<void> setEmail(String text) async {
     passWord.value = text;
   }
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  Function? onSavePressed() {
-    if (formKey.currentState?.validate() ?? false) {
-      apiRepository
-          .login(LoginRequest(email: email.value, password: passWord.value))
-          .then((value) {
-        if (value != null) {
-          Get.toNamed(Routes.ONBOARDING_SCREEN);
+  Future<void> setEmail(String text) async {
+    email.value = text;
+  }
+
+  final loginEmailController = TextEditingController();
+  final loginPasswordController = TextEditingController();
+
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  Future<void> login(BuildContext context) async {
+    try {
+      AppFocus.unfocus(context);
+      if (loginFormKey.currentState!.validate()) {
+        apiLoginData.value = await apiRepository.login(
+          LoginRequest(
+            email: email.value,
+            password: passWord.value,
+          ),
+        );
+
+        final prefs = Get.find<SharedPreferences>();
+        if (apiLoginData.value?.accessToken != null) {
+          await prefs.setString(StorageConstants.token,
+              apiLoginData.value?.accessToken.toString() ?? '');
+          await Get.toNamed(Routes.HOME);
         } else {
           ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
             content: Text('Tài khoản hoặc mật khẩu không chính xác'),
           ));
         }
-      });
+      }
+    } catch (_e) {
+      print(apiLoginData.value?.accessToken);
+      print("Error");
+    } finally {
+      await EasyLoading.dismiss();
     }
-    return null;
   }
 
-  Future<void> onAnonymousLoginPressed() async {
-    email.value = 'book_demo@gmail.com';
-    passWord.value = 'TestPassword@';
+  @override
+  void onClose() {
+    super.onClose();
+    loginEmailController.dispose();
+    loginPasswordController.dispose();
   }
 }

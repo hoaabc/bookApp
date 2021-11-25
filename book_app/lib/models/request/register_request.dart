@@ -16,12 +16,12 @@ class RegisterRequest {
 
   factory RegisterRequest.fromJson(Map<String, dynamic> json) =>
       RegisterRequest(
-        email: json["email"],
-        password: json["password"],
+        email: json['email'],
+        password: json['password'],
       );
 
   Map<String, dynamic> toJson() => {
-        "email": email,
-        "password": password,
+        'email': email,
+        'password': password,
       };
 }

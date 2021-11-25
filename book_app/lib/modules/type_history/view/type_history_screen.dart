@@ -45,10 +45,10 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                   style: TextAppStyle().textTitleContactStyle()),
             ),
             const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TypeHistory(lstItems: controller.getListHistory()),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 16),
+            //   child: TypeHistory(lstItems: controller.getListHistory()),
+            // ),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -56,10 +56,11 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                   style: TextAppStyle().textTitleContactStyle()),
             ),
             const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TypeHistory(lstItems: controller.getListHistory()),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 16),
+            //   child: 
+            //   //TypeHistory(lstItems: controller.getListHistory()),
+            // ),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -67,7 +68,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                   style: TextAppStyle().textTitleContactStyle()),
             ),
             const SizedBox(height: 16),
-            TypeHistory(lstItems: controller.getListHistory(), type: false),
+           // TypeHistory(lstItems: controller.getListHistory(), type: false),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -75,7 +76,7 @@ class TypeHistoryScreen extends GetView<TypeHistoryController> {
                   style: TextAppStyle().textTitleContactStyle()),
             ),
             const SizedBox(height: 16),
-            TypeHistory(lstItems: controller.getListHistory(), type: false),
+           // TypeHistory(lstItems: controller.getListHistory(), type: false),
             const SizedBox(height: 32),
           ],
         )),

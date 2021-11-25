@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../resource/assets_constant/images_constants.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
+import '../../../shared/utils/regex.dart';
 import '../../../shared/widgets/button/button_custom.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../../../shared/widgets/text_input_login/text_input_login.dart';
@@ -38,7 +39,7 @@ class LoginScreen extends GetView<AuthController> {
                           height: 120, width: 120, fit: BoxFit.cover)),
                   const SizedBox(height: 16),
                   Obx(() => Form(
-                        key: controller.formKey,
+                        key: controller.loginFormKey,
                         child: Container(
                             decoration: BoxDecoration(
                               color: AppColor.secondBackgroundColorLight,
@@ -57,22 +58,22 @@ class LoginScreen extends GetView<AuthController> {
                                         TextAppStyle().textRestPasswordStyle()),
                                 const SizedBox(height: 16),
                                 TextInputLogin(
-                                  validator: controller.emailValidator,
-                                  obscureText: false,
-                                  inputType: TextInputType.emailAddress,
-                                  hint: 'Email',
                                   onChanged: (text) {
                                     controller.setEmail(text);
                                   },
+                                  //validator: controller.emailValidator,
+                                  obscureText: false,
+                                  inputType: TextInputType.emailAddress,
+                                  hint: 'Email',
                                 ),
                                 const SizedBox(height: 16),
                                 TextInputLogin(
-                                  validator: controller.requiredValidator,
-                                  obscureText: !controller.showWallet.value,
-
                                   onChanged: (text) {
                                     controller.setPass(text);
                                   },
+
+                                  validator: controller.requiredValidator,
+                                  obscureText: !controller.showWallet.value,
                                   suffixIcon: IconButton(
                                     onPressed: () {
                                       controller.ChageshowWallet(
@@ -102,33 +103,13 @@ class LoginScreen extends GetView<AuthController> {
                                 const SizedBox(height: 32),
                                 inputInformationButton(
                                   onButtonPressed: () {
-                                    controller.onSavePressed();
+                                    controller.login(context);
                                   },
                                   titleButton: 'Đăng nhập',
                                   colorText: AppColor.secondTextColorLight,
                                   color: AppColor.eightTextColorLight,
                                 ),
                                 const SizedBox(height: 32),
-                                Center(
-                                  child: Column(
-                                    children: [
-                                      Text('Dùng tài khoản thử nghiệm?',
-                                          textAlign: TextAlign.center,
-                                          style: TextAppStyle()
-                                              .textTitleExpantedStyle()),
-                                      const SizedBox(height: 4),
-                                      InkWell(
-                                        onTap: () {
-                                          controller.onAnonymousLoginPressed();
-                                        },
-                                        child: Text('Đăng nhập ngay',
-                                            textAlign: TextAlign.center,
-                                            style: TextAppStyle()
-                                                .textStyleNoteLoginStyle()),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                               ],
                             )),
                       ))

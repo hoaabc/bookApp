@@ -1,4 +1,4 @@
-import 'package:book_app/models/response/home_model/home_models.dart';
+
 import 'package:book_app/modules/type_history/view/type_history_screen.dart';
 import 'package:get/get.dart';
 
@@ -26,13 +26,13 @@ class TypeHistoryController extends GetxController {
     return getListHistory;
   }
 
-  List<ItemModel> getListHistory() {
-    final getListHistory = <ItemModel>[];
-    final test =
-        ItemModel('Truyen trinh tham', ImageConstants.appIcon_gotrust_AI);
-    for (int i = 0; i < 6; i++) {
-      getListHistory.add(test);
-    }
-    return getListHistory;
-  }
+  // List<ItemModel> getListHistory() {
+  //   final getListHistory = <ItemModel>[];
+  //   final test =
+  //       ItemModel('Truyen trinh tham', ImageConstants.appIcon_gotrust_AI);
+  //   for (int i = 0; i < 6; i++) {
+  //     getListHistory.add(test);
+  //   }
+  //   return getListHistory;
+  // }
 }
