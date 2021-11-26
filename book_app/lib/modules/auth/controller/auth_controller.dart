@@ -13,17 +13,6 @@ import '../../../shared/utils/product_form_ultilies.dart';
 class AuthController extends GetxController with ProductForm {
   Rx<LoginResponseUIModel?> apiLoginData = Rx<LoginResponseUIModel?>(null);
   RxBool showWallet = false.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
   Future<void> ChageshowWallet(bool changeshowWallet) async {
     showWallet.value = !changeshowWallet;
   }
