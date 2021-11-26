@@ -1,9 +1,10 @@
-import 'package:book_app/modules/favourite/controller/favourite_controller.dart';
 import 'package:get/get.dart';
 
-class FovouriteBinding extends Bindings {
+import '../controller/favourite_controller.dart';
+
+class FavouriteBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<FovouriteController>(() => FovouriteController());
+    Get.lazyPut<FavouriteController>(() => FavouriteController(Get.find()));
   }
 }

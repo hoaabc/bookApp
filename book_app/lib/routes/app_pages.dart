@@ -7,8 +7,8 @@ import '../modules/dashboard/binding/dashboard_binding.dart';
 import '../modules/dashboard/view/dashboard_screen.dart';
 import '../modules/detail/binding/detail_binding.dart';
 import '../modules/detail/view/detail_screen.dart';
-import '../modules/favorite/binding/favorite_binding.dart';
-import '../modules/favorite/view/favorite_screen.dart';
+import '../modules/favourite/binding/favourite_binding.dart';
+import '../modules/favourite/view/favourite_screen.dart';
 import '../modules/home/binding/home_binding.dart';
 import '../modules/home/view/home_screen.dart';
 import '../modules/onboarding/binding/onboarding_binding.dart';
@@ -43,8 +43,8 @@ final routePages = [
       ]),
   GetPage(
       name: Routes.FAVOURITE,
-      page: () => FavoriteScreen(),
-      binding: FavoriteBinding()),
+      page: () => FavouriteScreen(),
+      binding: FavouriteBinding()),
   GetPage(
       name: Routes.PROFILE,
       page: () => ProfileScreen(),
@@ -58,6 +58,6 @@ final routePages = [
     HomeBinding(),
     DetailBinding(),
     ProfileBinding(),
-    FavoriteBinding()
+    FavouriteBinding()
   ]),
 ];

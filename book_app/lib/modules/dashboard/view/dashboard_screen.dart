@@ -6,7 +6,7 @@ import '../../../shared/bottom_navigation/bottom_bar_item.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../detail/view/detail_screen.dart';
-import '../../favorite/view/favorite_screen.dart';
+import '../../favourite/view/favourite_screen.dart';
 import '../../home/view/home_screen.dart';
 import '../../profile/view/profile_screen.dart';
 
@@ -30,7 +30,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
       HomeScreen(),
       DetailScreen(),
       ProfileScreen(),
-      FavoriteScreen(),
+      FavouriteScreen(),
     ];
     _tabController = TabController(vsync: this, length: _screens.length);
   }

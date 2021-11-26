@@ -30,7 +30,7 @@ extension _DetailChildern on DetailScreen {
                 const SizedBox(
                   height: 8,
                 ),
-                Text(' vu trung klien',
+                Text(' vu trung kien',
                     overflow: TextOverflow.ellipsis,
                     style: TextAppStyle().textAuthorBookStyle()),
                 const SizedBox(
@@ -42,49 +42,49 @@ extension _DetailChildern on DetailScreen {
                     borderRadius: BorderRadius.circular(8),
                     color: AppColor.primaryHintColorLight.withOpacity(0.5),
                   ),
-                  child: Text(' Ngoon tinhf ',
+                  child: Text(' Ngôn tình ',
                       style: TextAppStyle().texttitleStyle()),
                 ),
                 const SizedBox(
                   height: 12,
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            FCoreImage(ImageConstants.icon_like_count,
-                                fit: BoxFit.cover, height: 25, width: 25),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(bookItem.likeCount.toString(),
-                                style: TextAppStyle().textdescriptionStyle()),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            FCoreImage(ImageConstants.icon_view_count,
-                                fit: BoxFit.cover, height: 25, width: 25),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(bookItem.viewCount.toString(),
-                                style: TextAppStyle().textdescriptionStyle()),
-                          ],
-                        ),
-                      )
-                    ])
+                // Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Expanded(
+                //         flex: 1,
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.start,
+                //           crossAxisAlignment: CrossAxisAlignment.center,
+                //           children: [
+                //             FCoreImage(ImageConstants.icon_like_count,
+                //                 fit: BoxFit.cover, height: 25, width: 25),
+                //             const SizedBox(
+                //               width: 10,
+                //             ),
+                //             Text(bookItem.likeCount.toString(),
+                //                 style: TextAppStyle().textdescriptionStyle()),
+                //           ],
+                //         ),
+                //       ),
+                //       Expanded(
+                //         flex: 1,
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.start,
+                //           crossAxisAlignment: CrossAxisAlignment.center,
+                //           children: [
+                //             FCoreImage(ImageConstants.icon_view_count,
+                //                 fit: BoxFit.cover, height: 25, width: 25),
+                //             const SizedBox(
+                //               width: 10,
+                //             ),
+                //             Text(bookItem.viewCount.toString(),
+                //                 style: TextAppStyle().textdescriptionStyle()),
+                //           ],
+                //         ),
+                //       )
+                //     ])
               ],
             ),
           )
@@ -173,5 +173,19 @@ extension _DetailChildern on DetailScreen {
               height: 1, color: AppColor.dividerColorLightBottomSheet),
           itemCount: 10),
     ));
+  }
+
+  Widget _genListBookItem({required List<BookDetail> lstBookItem}) {
+    return Wrap(
+        spacing: 16,
+        runSpacing: 16,
+        children: List<Widget>.generate(lstBookItem.length, (index) {
+          return ReadingListCard(
+            items: lstBookItem[index],
+            pressDetails: () {
+              print("Press");
+            },
+          );
+        }));
   }
 }
