@@ -48,7 +48,7 @@ class AuthController extends GetxController with ProductForm {
         final prefs = Get.find<SharedPreferences>();
         if (apiLoginData.value?.accessToken != null) {
           await prefs.setString(StorageConstants.token,
-              apiLoginData.value?.accessToken.toString() ?? '');
+              'Bearer ${apiLoginData.value?.accessToken.toString()}');
           await Get.toNamed(Routes.HOME);
         } else {
           ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(

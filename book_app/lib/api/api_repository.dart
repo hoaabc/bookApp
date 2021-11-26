@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:book_app/shared/constants/storage.dart';
+
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/author_model/author_model.dart';
@@ -29,14 +31,20 @@ class ApiRepository {
     }
   }
 
- 
+  // Future<UsersResponse?> getUsers() async {
+  //   final res = await apiProvider
+  //       .getUsers('${ApiConstants.baseUrl}api/users?page=1&per_page=12');
+  //   if (res.statusCode == 200) {
+  //     return UsersResponse.fromJson(res.body);
+  //   }
+  // }
 
 // get data author
-  Future<GetDataAuthor?> getDataAuthors() async {
-    final res = await apiProvider.getAllAuthor('api/authors');
-    if (res.statusCode == 200) {
-      return GetDataAuthor.fromJson(res.body);
-    }
+  // Future<GetDataAuthor?> getDataAuthors() async {
+  //   final res = await apiProvider.getAllAuthor('api/authors');
+  //   if (res.statusCode == 200) {
+  //     return GetDataAuthor.fromJson(res.body);
+  //   }
   }
 // get all slider
   // Future<ListSlider?> getDataSlider() async {
@@ -56,14 +64,14 @@ class ApiRepository {
   //   }
   // }
   // get book detail
-  Future<BookDetailModel?> getDataBookDetail({required String idBook}) async {
-    final res = await apiProvider.getAllBookDetail('api/books/$idBook');
-    if (res.statusCode == 200) {
-      return BookDetailModel.fromJson(res.body);
-    } else {
-      return null;
-    }
-  }
+  // Future<BookDetailModel?> getDataBookDetail({required String idBook}) async {
+  //   final res = await apiProvider.getAllBookDetail('api/books/$idBook');
+  //   if (res.statusCode == 200) {
+  //     return BookDetailModel.fromJson(res.body);
+  //   } else {
+  //     return null;
+  //   }
+  // }
   //save storage
 
-}
+

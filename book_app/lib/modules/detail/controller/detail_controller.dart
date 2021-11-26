@@ -25,7 +25,7 @@ class DetailController extends GetxController {
   Future<void> loadData() async {
     await EasyLoading.show(status: 'Loading...');
     try {
-      await loadBookInfo();
+      //await loadBookInfo();
     } catch (_e) {
       print("Error");
     } finally {
@@ -33,10 +33,10 @@ class DetailController extends GetxController {
     }
   }
 
-  Future<void> loadBookInfo() async {
-    final _bookInfo = await apiRepository.getDataBookDetail(idBook: '8');
-    apiBookInfo.value = _bookInfo;
-  }
+  // Future<void> loadBookInfo() async {
+  //   final _bookInfo = await apiRepository.getDataBookDetail(idBook: '8');
+  //   apiBookInfo.value = _bookInfo;
+  // }
 
   Future<File> createFileOfPdfUrl() async {
   

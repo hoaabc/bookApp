@@ -14,16 +14,16 @@ HomeModelUIModel _$HomeModelUIModelFromJson(Map<String, dynamic> json) =>
       genres: (json['genres'] as List<dynamic>)
           .map((e) => GenreUIModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      latestBook: (json['latestBook'] as List<dynamic>)
+      latestBook: (json['latest_book'] as List<dynamic>)
           .map((e) => UIItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      bookSeries: (json['bookSeries'] as List<dynamic>)
+      bookSeries: (json['book_series'] as List<dynamic>)
           .map((e) => UIItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      topView: (json['topView'] as List<dynamic>)
+      topView: (json['top_view'] as List<dynamic>)
           .map((e) => UIItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      mostFavorite: (json['mostFavorite'] as List<dynamic>)
+      mostFavorite: (json['most_favorite'] as List<dynamic>)
           .map((e) => UIItem.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -32,35 +32,35 @@ Map<String, dynamic> _$HomeModelUIModelToJson(HomeModelUIModel instance) =>
     <String, dynamic>{
       'slider': instance.slider,
       'genres': instance.genres,
-      'latestBook': instance.latestBook,
-      'bookSeries': instance.bookSeries,
-      'topView': instance.topView,
-      'mostFavorite': instance.mostFavorite,
+      'latest_book': instance.latestBook,
+      'book_series': instance.bookSeries,
+      'top_view': instance.topView,
+      'most_favorite': instance.mostFavorite,
     };
 
 GenreUIModel _$GenreUIModelFromJson(Map<String, dynamic> json) => GenreUIModel(
       id: json['id'] as int,
-      genreName: json['genreName'] as String,
+      genreName: json['genre_name'] as String,
       description: json['description'] as String,
-      genreImage: json['genreImage'] as String,
+      genreImage: json['genre_image'] as String,
     );
 
 Map<String, dynamic> _$GenreUIModelToJson(GenreUIModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'genreName': instance.genreName,
+      'genre_name': instance.genreName,
       'description': instance.description,
-      'genreImage': instance.genreImage,
+      'genre_image': instance.genreImage,
     };
 
 SliderUIModel _$SliderUIModelFromJson(Map<String, dynamic> json) =>
     SliderUIModel(
       name: json['name'] as String,
-      sliderImg: json['sliderImg'] as String,
+      sliderImg: json['slider_img'] as String,
     );
 
 Map<String, dynamic> _$SliderUIModelToJson(SliderUIModel instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'sliderImg': instance.sliderImg,
+      'slider_img': instance.sliderImg,
     };

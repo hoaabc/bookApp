@@ -18,7 +18,7 @@ class ApiProvider extends BaseProvider {
   }
 
   // get author
-  Future<Response> getAllAuthor(String path) {
+  Future<Response> getAllAuthor(String path, Map<String, String>? headers) {
     return get(path);
   }
 

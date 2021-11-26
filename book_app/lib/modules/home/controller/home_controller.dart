@@ -34,8 +34,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> loadAuthor() async {
-    final _authorInfo = await apiRepository.getDataAuthors();
-    authorInfo.value = _authorInfo;
+   // final _authorInfo = await apiRepository.getDataAuthors();
+   // authorInfo.value = _authorInfo;
   }
 
   // Future<void> loadSlider() async {
