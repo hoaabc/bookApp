@@ -110,6 +110,7 @@ class LoginScreen extends GetView<AuthController> {
                                   color: AppColor.eightTextColorLight,
                                 ),
                                 const SizedBox(height: 32),
+                                
                               ],
                             )),
                       ))

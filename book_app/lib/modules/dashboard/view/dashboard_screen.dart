@@ -29,8 +29,8 @@ class _DashBoardScreenState extends State<DashBoardScreen>
     _screens = [
       HomeScreen(),
       DetailScreen(),
-      ProfileScreen(),
       FavoriteScreen(),
+      ProfileScreen(),
     ];
     _tabController = TabController(vsync: this, length: _screens.length);
   }

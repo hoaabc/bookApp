@@ -1,78 +1,47 @@
 part of 'profile_screen.dart';
 
 extension _ProfileScreenChildren on ProfileScreen {
-  Widget _detailEditText({
-    required BuildContext context,
-    required String lable,
-    TextInputType? inputType,
-    required bool enableController,
-    required TextEditingController controller,
-    bool? obscureText,
-  }) {
+  Widget _viewProfile({required ProfileUIModel? profile}) {
     return Container(
-      padding: const EdgeInsets.only(top: 12),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(lable, style: TextAppStyle().textTitleContactStyle()),
-          const SizedBox(
-            height: 8,
-          ),
-          TextField(
-            enabled: enableController,
-            style: const TextStyle(
-              color: AppColor.textBlack,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            controller: controller,
-            keyboardType: inputType,
-            obscureText: obscureText!,
-            decoration: const InputDecoration(
-                isDense: true,
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.all(0)),
-          ),
+        children: [
+          _inforDetail(
+              items: 'User name', value: profile!.username ?? 'Hoa nguyen van'),
+          const SizedBox(height: 16),
+          _inforDetail(
+              items: 'Full name', value: profile.fullName ?? 'Hoa nguyen'),
+          const SizedBox(height: 16),
+          _inforDetail(items: 'Email', value: profile.email ?? 'hoa@gmail.com'),
+          const SizedBox(height: 16),
+          _inforDetail(items: 'Phone', value: profile.phone ?? '012345678'),
+          const SizedBox(height: 16),
         ],
       ),
     );
   }
 
-  Widget _infoDetail({required List<InfoDetailModel> lstInfoDetail}) {
-    return ListView.separated(
-        padding: const EdgeInsets.all(0),
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              
-            },
-            child: Container(
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(lstInfoDetail[index].title,
-                      textAlign: TextAlign.center,
-                      style: TextAppStyle().textTitleContactStyle()),
-                  const Icon(
-                    Icons.navigate_next_rounded,
-                    size: 20,
-                    color: Color(0xff333333),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (context, index) => const SizedBox(height: 8),
-        itemCount: 2);
+  Widget _inforDetail({required String items, required String value}) {
+    return Container(
+      width: Get.width,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: AppColor.sixTextColorLight.withOpacity(0.1),
+      ),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(items,
+                textAlign: TextAlign.left,
+                style: TextAppStyle().textFullNameStyle()),
+            const SizedBox(height: 4),
+            Text(value,
+                textAlign: TextAlign.left,
+                style: TextAppStyle().textPhoneNumberStyle()),
+          ]),
+    );
   }
-}
-
-class InfoDetailModel {
-  final String title;
-  InfoDetailModel(this.title);
 }

@@ -8,13 +8,13 @@ part of 'profile_model_ui.dart';
 
 ProfileUIModel _$ProfileUIModelFromJson(Map<String, dynamic> json) =>
     ProfileUIModel(
-      id: json['id'] as int,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      fullName: json['fullName'] as String,
-      phone: json['phone'] as String,
-      roleId: json['roleId'] as int,
-      createdAt: json['createdAt'] as String,
+      id: json['id'] as int?,
+      username: json['username'] as String?,
+      email: json['email'] as String?,
+      fullName: json['full_name'] as String?,
+      phone: json['phone'] as String?,
+      roleId: json['role_id'] as int?,
+      createdAt: json['created_at'] as String?,
     );
 
 Map<String, dynamic> _$ProfileUIModelToJson(ProfileUIModel instance) =>
@@ -22,8 +22,8 @@ Map<String, dynamic> _$ProfileUIModelToJson(ProfileUIModel instance) =>
       'id': instance.id,
       'username': instance.username,
       'email': instance.email,
-      'fullName': instance.fullName,
+      'full_name': instance.fullName,
       'phone': instance.phone,
-      'roleId': instance.roleId,
-      'createdAt': instance.createdAt,
+      'role_id': instance.roleId,
+      'created_at': instance.createdAt,
     };

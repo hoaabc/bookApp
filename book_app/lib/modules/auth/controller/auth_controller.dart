@@ -7,7 +7,6 @@ import '../../../api/api.dart';
 import '../../../models/models.dart';
 import '../../../routes/app_pages.dart';
 import '../../../shared/constants/storage.dart';
-import '../../../shared/utils/focus.dart';
 import '../../../shared/utils/product_form_ultilies.dart';
 
 class AuthController extends GetxController with ProductForm {
@@ -21,7 +20,6 @@ class AuthController extends GetxController with ProductForm {
   AuthController({required this.apiRepository});
   RxString email = RxString('');
   RxString passWord = RxString('');
-
   Future<void> setPass(String text) async {
     passWord.value = text;
   }
@@ -32,11 +30,10 @@ class AuthController extends GetxController with ProductForm {
 
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
-
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   Future<void> login(BuildContext context) async {
     try {
-      AppFocus.unfocus(context);
+      //AppFocus.unfocus(context);
       if (loginFormKey.currentState!.validate()) {
         apiLoginData.value = await apiRepository.login(
           LoginRequest(
@@ -46,10 +43,10 @@ class AuthController extends GetxController with ProductForm {
         );
 
         final prefs = Get.find<SharedPreferences>();
-        if (apiLoginData.value?.accessToken != null) {
+        if (apiLoginData.value?.token != null) {
           await prefs.setString(StorageConstants.token,
-              'Bearer ${apiLoginData.value?.accessToken.toString()}');
-          await Get.toNamed(Routes.HOME);
+              apiLoginData.value?.token.toString()??'');
+          await Get.toNamed(Routes.DASHBOARD);
         } else {
           ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
             content: Text('Tài khoản hoặc mật khẩu không chính xác'),
@@ -57,17 +54,14 @@ class AuthController extends GetxController with ProductForm {
         }
       }
     } catch (_e) {
-      print(apiLoginData.value?.accessToken);
-      print("Error");
+      // print(apiLoginData.value?.accessToken);
+       ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
+            content: Text('Tài khoản hoặc mật khẩu không chính xác'),
+          ));
     } finally {
       await EasyLoading.dismiss();
     }
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-    loginEmailController.dispose();
-    loginPasswordController.dispose();
-  }
+
 }

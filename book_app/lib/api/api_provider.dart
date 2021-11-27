@@ -17,22 +17,15 @@ class ApiProvider extends BaseProvider {
     return get(path);
   }
 
-  // get author
-  Future<Response> getAllAuthor(String path, Map<String, String>? headers) {
-    return get(path);
-  }
-
-  // get api/sliders
-  Future<Response> getAllSlider(String path) {
-    return get(path);
-  }
-
   // get book home
-  Future<Response> getAllBookHome(String path) {
+  Future<Response> getDataHome(String path) {
     return get(path);
   }
 
-  Future<Response> getAllBookDetail(String path) {
+  // profile
+    Future<Response> getDataProfile(String path) {
     return get(path);
   }
+  // detail : 
+ 
 }

@@ -19,6 +19,18 @@ class FCoreImage extends StatelessWidget {
   final Color? color;
   @override
   Widget build(BuildContext context) {
+    if (source.contains('http')) {
+      return Image.network(
+        source,
+        fit: fit,
+        width: width,
+        height: height,
+        errorBuilder: (context, error, stackTrace) =>
+                    const CircularProgressIndicator(
+
+                    ),
+      );
+    }
     if (source.contains('.svg')) {
       return SvgPicture.asset(
         source,
@@ -34,5 +46,14 @@ class FCoreImage extends StatelessWidget {
       width: width,
       height: height,
     );
+  }
+     Widget _loader(BuildContext context, String url) {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  Widget _error(BuildContext context, String url, dynamic error) {
+    return const Center(child: Icon(Icons.error));
   }
 }
