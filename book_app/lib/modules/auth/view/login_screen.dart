@@ -13,11 +13,10 @@ import '../controller/auth_controller.dart';
 class LoginScreen extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        top: false,
+        child: SingleChildScrollView(
           child: Stack(children: [
             Container(
               height: Get.height * 2 / 3,
@@ -71,7 +70,7 @@ class LoginScreen extends GetView<AuthController> {
                                   onChanged: (text) {
                                     controller.setPass(text);
                                   },
-
+      
                                   validator: controller.requiredValidator,
                                   obscureText: !controller.showWallet.value,
                                   suffixIcon: IconButton(
