@@ -33,11 +33,11 @@ class LoginScreen extends GetView<AuthController> {
               child: Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.only(top: 32),
+                      padding: const EdgeInsets.only(top: 20),
                       alignment: Alignment.topCenter,
-                      child: FCoreImage(ImageConstants.ic_logo_gotrust_login,
-                          height: 120, width: 120, fit: BoxFit.cover)),
-                  const SizedBox(height: 16),
+                      child: FCoreImage(ImageConstants.ic_logo_book_app_login,
+                          height: 160, width: 160, fit: BoxFit.cover)),
+                  const SizedBox(height: 8),
                   Obx(() => Form(
                         key: controller.loginFormKey,
                         child: Container(
@@ -94,7 +94,7 @@ class LoginScreen extends GetView<AuthController> {
                                   onTap: () {},
                                   child: Container(
                                     alignment: Alignment.bottomRight,
-                                    child: Text('Quên mật khẩu?',
+                                    child: Text('Đăng ký',
                                         textAlign: TextAlign.end,
                                         style:
                                             TextAppStyle().textAddressStyle()),
@@ -110,7 +110,6 @@ class LoginScreen extends GetView<AuthController> {
                                   color: AppColor.eightTextColorLight,
                                 ),
                                 const SizedBox(height: 32),
-                                
                               ],
                             )),
                       ))

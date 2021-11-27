@@ -273,4 +273,12 @@ class TextAppStyle {
       fontWeight: FontWeight.w400,
     );
   }
+    TextStyle textTitleInformationStyle() {
+    return TextStyle(
+      color: AppColor.secondTextColorLight,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+  
 }

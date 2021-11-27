@@ -1,6 +1,4 @@
 class ImageConstants {
-
-
   //Login screen
   static const String appIcon =
       'lib/resource/assets_resources/images/app_icon.png';
@@ -50,31 +48,20 @@ class ImageConstants {
       'lib/resource/assets_resources/images/2.0x/background_reset_pass.png';
   static const String background_login =
       'lib/resource/assets_resources/images/2.0x/background_login.png';
-  static const String ic_logo_gotrust_login =
-      'lib/resource/assets_resources/images/2.0x/ic_logo_gotrust_login.png';
+  static const String ic_logo_book_app_login =
+      'lib/resource/assets_resources/images/2.0x/iclogoBookApp.png';
+
   //onboarding
   static const String onboarding_first =
-      'lib/resource/assets_resources/images/2.0x/onboarding_first.png';
+      'lib/resource/assets_resources/images/3.0x/onbroading1.png';
   static const String onboarding_second =
-      'lib/resource/assets_resources/images/2.0x/onboarding_second.png';
+      'lib/resource/assets_resources/images/3.0x/onbroading2.png';
   static const String onboarding_third =
-      'lib/resource/assets_resources/images/2.0x/onboarding_third.png';
+      'lib/resource/assets_resources/images/3.0x/onbroading3.png';
   static const String onboarding_fourth =
-      'lib/resource/assets_resources/images/2.0x/onboarding_fourth.png';
+      'lib/resource/assets_resources/images/3.0x/onbroading4.png';
   static const String onboarding_fifth =
-      'lib/resource/assets_resources/images/2.0x/onboarding_fifth.png';
-  //icon onboarding
-  static const String icon_onboarding_first =
-      'lib/resource/assets_resources/images/2.0x/icon_onboarding_first.png';
-  static const String icon_onboarding_second =
-      'lib/resource/assets_resources/images/2.0x/icon_onboarding_second.png';
-  static const String icon_onboarding_third =
-      'lib/resource/assets_resources/images/2.0x/icon_onboarding_third.png';
-  static const String icon_onboarding_fourth =
-      'lib/resource/assets_resources/images/2.0x/icon_onboarding_fourth.png';
-  static const String icon_onboarding_fifth =
-      'lib/resource/assets_resources/images/2.0x/icon_onboarding_fifth.png';
-
+      'lib/resource/assets_resources/images/3.0x/onbroading5.png';
   // final avatar
   static const String default_avatar =
       'lib/resource/assets_resources/images/default-avatar.png';

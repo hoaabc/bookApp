@@ -46,7 +46,7 @@ class AuthController extends GetxController with ProductForm {
         if (apiLoginData.value?.token != null) {
           await prefs.setString(StorageConstants.token,
               apiLoginData.value?.token.toString()??'');
-          await Get.toNamed(Routes.DASHBOARD);
+          await Get.toNamed(Routes.ONBOARDING_SCREEN);
         } else {
           ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
             content: Text('Tài khoản hoặc mật khẩu không chính xác'),

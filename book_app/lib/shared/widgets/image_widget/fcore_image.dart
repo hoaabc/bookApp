@@ -1,6 +1,7 @@
-import 'package:book_app/shared/widgets/image_widget/cache_iamge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'cache_iamge.dart';
 
 class FCoreImage extends StatelessWidget {
   FCoreImage(
@@ -27,12 +28,6 @@ class FCoreImage extends StatelessWidget {
         width: width,
         height: height,
       );
-
-      // Image.network(
-
-      //   errorBuilder: (context, error, stackTrace) =>
-      //       const CircularProgressIndicator(),
-      // );
     } else if (source.contains('.svg')) {
       return SvgPicture.asset(
         source,
@@ -49,15 +44,5 @@ class FCoreImage extends StatelessWidget {
         height: height,
       );
     }
-  }
-
-  Widget _loader(BuildContext context, String url) {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
-  }
-
-  Widget _error(BuildContext context, String url, dynamic error) {
-    return const Center(child: Icon(Icons.error));
   }
 }

@@ -1,9 +1,9 @@
 // import 'package:book_app/models/response/home_model/book_home_model.dart';
-import 'package:book_app/models/response/home_page_model_ui/home_page_model_ui.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../../../api/api_repository.dart';
+import '../../../models/response/home_page_model_ui/home_page_model_ui.dart';
 // import '../../../models/response/home_ui_model/book_home_model.dart';
 
 class HomeController extends GetxController {

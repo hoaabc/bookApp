@@ -70,10 +70,6 @@ class AppCacheImage extends StatelessWidget {
       child: Container(
         color: const Color(0xFFe6e6e6),
         child: const Center(
-          // child: Image.asset(
-          //   AppImages.bgImagePlaceholder,
-          //   fit: BoxFit.fitHeight,
-          // ),
           child: Icon(
             Icons.broken_image_outlined,
             color: Colors.grey,
