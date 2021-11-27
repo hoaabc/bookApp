@@ -9,8 +9,8 @@ part of 'ui_item.dart';
 UIItem _$UIItemFromJson(Map<String, dynamic> json) => UIItem(
       id: json['id'] as int?,
       name: json['name'] as String?,
-      bookImage: json['bookImage'] as String?,
-      isLiked: json['isLiked'] as bool?,
+      bookImage: json['book_image'] as String?,
+      isLiked: json['is_liked'] as bool?,
     );
 
 Map<String, dynamic> _$UIItemToJson(UIItem instance) => <String, dynamic>{

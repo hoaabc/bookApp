@@ -1,3 +1,4 @@
+import 'package:book_app/shared/widgets/image_widget/cache_iamge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,18 +21,19 @@ class FCoreImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (source.contains('http')) {
-      return Image.network(
-        source,
+      return AppCacheImage(
+        url: source,
         fit: fit,
         width: width,
         height: height,
-        errorBuilder: (context, error, stackTrace) =>
-                    const CircularProgressIndicator(
-
-                    ),
       );
-    }
-    if (source.contains('.svg')) {
+
+      // Image.network(
+
+      //   errorBuilder: (context, error, stackTrace) =>
+      //       const CircularProgressIndicator(),
+      // );
+    } else if (source.contains('.svg')) {
       return SvgPicture.asset(
         source,
         fit: fit,
@@ -39,15 +41,17 @@ class FCoreImage extends StatelessWidget {
         width: width,
         height: height,
       );
+    } else {
+      return Image.asset(
+        source,
+        fit: fit,
+        width: width,
+        height: height,
+      );
     }
-    return Image.asset(
-      source,
-      fit: fit,
-      width: width,
-      height: height,
-    );
   }
-     Widget _loader(BuildContext context, String url) {
+
+  Widget _loader(BuildContext context, String url) {
     return const Center(
       child: CircularProgressIndicator(),
     );

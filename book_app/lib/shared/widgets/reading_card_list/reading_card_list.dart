@@ -25,25 +25,13 @@ class ReadingListCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                items.bookImage ?? '',
-                height: 170,
-                width: 150,
-                errorBuilder: (context, error, stackTrace) =>
-                    const CircularProgressIndicator(
-                      
-                    ),
-                fit: BoxFit.cover,
-              ),
-
-              // FCoreImage(
-              //   items.bookImage ?? '',
-              //   height: 170,
-              //   width: 150,
-              //   fit: BoxFit.cover,
-              // ),
-            ),
+                borderRadius: BorderRadius.circular(8),
+                child: FCoreImage(
+                  items.bookImage ?? '',
+                  height: 170,
+                  width: 150,
+                  fit: BoxFit.cover,
+                )),
             const SizedBox(height: 8),
             Text(items.name ?? 'Literary Fiction',
                 textAlign: TextAlign.start,
