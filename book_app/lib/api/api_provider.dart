@@ -26,6 +26,13 @@ class ApiProvider extends BaseProvider {
     Future<Response> getDataProfile(String path) {
     return get(path);
   }
-  // detail : 
+  // yeu thích : 
+     Future<Response> getDataFavorite(String path) {
+    return get(path);
+  }// get rêcntt
+       Future<Response> getDataRecent(String path) {
+    return get(path);
+  }
+
  
 }

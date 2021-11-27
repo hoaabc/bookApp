@@ -1,18 +1,46 @@
-import 'package:book_app/models/response/favorite_models/favorite_model.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
+import '../../../api/api_repository.dart';
+import '../../../models/response/book_item_ui_moel/ui_item.dart';
 
-import '../../../resource/assets_constant/images_constants.dart';
 
 class FavoriteController extends GetxController {
-  List<FavoriteModel> getListHistory() {
-    final getListHistory = <FavoriteModel>[];
-    final test = FavoriteModel(ImageConstants.appIcon_gotrust_AI, 'Truyen trinh tham',
-        'truyen ngu ngon nhan gian');
-    for (int i = 0; i < 6; i++) {
-      getListHistory.add(test);
+    final ApiRepository apiRepository;
+  Rx<List<UIItem>?> favoriteApiData = Rx<List<UIItem>?>(null);
+  Rx<List<UIItem>?> recentApiData = Rx<List<UIItem>?>(null);
+  FavoriteController({required this.apiRepository}){
+    _getFavoriteData();
+    _getRecentData();
+  }
+    @override
+  Future<void> onInit() async {
+     
+    await _getFavoriteData();
+    await _getRecentData();
+    super.onInit();
+  }
+   Future<void> _getFavoriteData() async {
+    await EasyLoading.show();
+    try {
+      favoriteApiData.value = await apiRepository.getDataFavoriteUI();
+    } catch (e) {
+      print(e);
+       await EasyLoading.show(status: '...Không tải được dữ liệu');
+    } finally {
+      await EasyLoading.dismiss();
     }
-    return getListHistory;
   }
   // get _tabController => null;
+     Future<void> _getRecentData() async {
+    await EasyLoading.show();
+    try {
+      recentApiData.value = await apiRepository.getDataRecentUI();
+    } catch (e) {
+      print(e);
+       await EasyLoading.show(status: '...Không tải được dữ liệu');
+    } finally {
+      await EasyLoading.dismiss();
+    }
+  }
 }

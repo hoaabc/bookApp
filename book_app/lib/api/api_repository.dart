@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:book_app/models/response/book_item_ui_moel/ui_item.dart';
+
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/auth_model_ui/login_response_ui_model.dart';
@@ -29,13 +31,14 @@ class ApiRepository {
     }
   }
 
-// home 
+// home
   Future<HomeModelUIModel?> getDataHomeUI() async {
     final res = await apiProvider.getDataHome('api/home');
     if (res.statusCode == 200) {
       return HomeModelUIModel.fromJson(res.body);
     }
   }
+
   // getdata profile
   Future<ProfileUIModel?> getDataProfileUI() async {
     final res = await apiProvider.getDataProfile('api/profile');
@@ -45,6 +48,29 @@ class ApiRepository {
       return null;
     }
   }
+  // getDataFavorite
 
-
+  Future<List<UIItem>?> getDataFavoriteUI() async {
+    final res = await apiProvider.getDataFavorite('api/favorite-book');
+    if (res.statusCode == 200) {
+      final value = res.body!
+          .map<UIItem>((e) => UIItem.fromJson(e as Map<String, dynamic>))
+          .toList();
+      return value;
+    } else {
+      return null;
+    }
+  }
+  // get data recent 
+    Future<List<UIItem>?> getDataRecentUI() async {
+    final res = await apiProvider.getDataRecent('api/recent-book');
+    if (res.statusCode == 200) {
+      final value = res.body!
+          .map<UIItem>((e) => UIItem.fromJson(e as Map<String, dynamic>))
+          .toList();
+      return value;
+    } else {
+      return null;
+    }
+  }
 }

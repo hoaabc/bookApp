@@ -82,4 +82,8 @@ class ImageConstants {
       'lib/resource/assets_resources/images/image_icon/view_count.png';
   static const String icon_like_count =
       'lib/resource/assets_resources/images/image_icon/like_count.png';
+      // not empty
+    static const String icNotemptyBook =
+      'lib/resource/assets_resources/images/3.0x/icNotemptyBook.png';
 }
+

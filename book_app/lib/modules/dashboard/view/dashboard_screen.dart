@@ -85,7 +85,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
         BottomBarItemWidget(
           icon: IconConstants.iconMessageUnActive,
           activeIcon: IconConstants.iconMessageActive,
-          label: 'Thông báo'.tr,
+          label: 'Yêu thích'.tr,
         ),
         BottomBarItemWidget(
           icon: IconConstants.iconAccountUnActive,

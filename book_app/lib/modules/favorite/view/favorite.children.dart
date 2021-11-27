@@ -1,7 +1,7 @@
 part of 'favorite_screen.dart';
 
 extension _FavoriteChildernScreen on FavoriteScreen {
-  Widget _tabdata({required List<FavoriteModel> lstData}) {
+  Widget _tabdata({required List<UIItem> lstData}) {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(0),
@@ -16,8 +16,7 @@ extension _FavoriteChildernScreen on FavoriteScreen {
     );
   }
 
-  Widget itemDetail(
-      {required FavoriteModel itemModel, bool isRequired = true}) {
+  Widget itemDetail({required UIItem itemModel, bool isRequired = true}) {
     return Container(
       width: isRequired ? Get.width : (Get.width - 64) / 3,
       child: isRequired
@@ -26,49 +25,57 @@ extension _FavoriteChildernScreen on FavoriteScreen {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: FCoreImage(itemModel.image,
-                      width: (Get.width - 64) / 3,
-                      height: (Get.width - 64) / 3,
-                      fit: BoxFit.fill),
-                ),
+                    borderRadius: BorderRadius.circular(8),
+                    child: FCoreImage(
+                      itemModel.bookImage ?? '',
+                      height: 170,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    )),
                 const SizedBox(
                   width: 16,
                 ),
                 Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(itemModel.title,
-                            style: TextAppStyle().textTitleContactStyle()),
-                        const SizedBox(height: 8),
-                        Text(itemModel.content,
-                            style: TextAppStyle().textTitleExpantedStyle())
-                      ]),
+                  child: Text(itemModel.name ?? 'Literary Fiction',
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: AppColor.kLightBlackColor,
+                        fontWeight: FontWeight.bold,
+                      )),
                 )
               ],
             )
           : Column(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: FCoreImage(itemModel.image,
-                      width: (Get.width - 64) / 3,
-                      height: (Get.width - 64) / 3,
-                      fit: BoxFit.fill),
-                ),
+                    borderRadius: BorderRadius.circular(8),
+                    child: FCoreImage(
+                      itemModel.bookImage ?? '',
+                      height: 170,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    )),
                 const SizedBox(
                   width: 16,
                 ),
-                Text(itemModel.title,
-                    style: TextAppStyle().textTitleContactStyle())
+                Expanded(
+                  child: Text(itemModel.name ?? 'Literary Fiction',
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: AppColor.kLightBlackColor,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
               ],
             ),
     );
   }
 
-  Widget _suggestData({required List<FavoriteModel> lstData}) {
+  Widget _suggestData({required List<UIItem> lstData}) {
     return Container(
       height: 200,
       child: ListView.separated(
