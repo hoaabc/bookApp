@@ -100,7 +100,9 @@ extension _DetailChildern on DetailScreen {
   Widget _readMoreDescription(
       {required String description,
       required String rating_point,
-      required String status}) {
+      required String status,
+      required Function onChangeData,
+      }) {
     double result = double.parse(rating_point);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -112,21 +114,36 @@ extension _DetailChildern on DetailScreen {
                       fontSize: 18,
                       color: Colors.blue,
                       fontWeight: FontWeight.w600)),
-              RatingBar.builder(
-                onRatingUpdate: (rating) {
-                  print('$rating');
-                },
-                itemSize: 20,
-                initialRating: result,
-                minRating: 1.0,
-                direction: Axis.horizontal,
-                allowHalfRating: false,
-                itemCount: 5,
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star_sharp,
-                  color: Colors.amber,
+               Row(
+                  children: [
+                    RatingBar.builder(
+                      onRatingUpdate: (rating) {
+                        print('$rating');
+                      },
+                      itemSize: 20,
+                      initialRating: result,
+                      minRating: 1.0,
+                      direction: Axis.horizontal,
+                      allowHalfRating: false,
+                      itemCount: 5,
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star_sharp,
+                        color: Colors.amber,
+                      ),
+                    ),
+                    IconButton(
+            onPressed: (){
+onChangeData();
+            },
+            icon: Icon(
+              Icons.create_outlined,
+              color: AppColor.contractInfoColor,
+            ),
+          ),
+                    
+                  ],
                 ),
-              ),
+              
             ]),
             const SizedBox(
               height: 10,
@@ -268,6 +285,55 @@ extension _DetailChildern on DetailScreen {
                 ),
               )),
         ],
+      ),
+    );
+  }
+
+  Widget _pushCommentBook(
+      {TextEditingController? textController,
+      required String hintText,
+      required Function onChangeData,
+      bool? isRequiredIconSearch = true,
+      required BuildContext context}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+       padding: const EdgeInsets.only(left: 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        gradient:  LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [
+            AppColor.color45C152.withOpacity(0.1),
+            AppColor.color0ADC90.withOpacity(0.1),
+          ],
+        ),
+      ),
+      child: TextField(
+        onChanged: onChangeData(),
+        controller: textController,
+        maxLines: 1,
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 16),
+        decoration: InputDecoration(
+          contentPadding:
+              isRequiredIconSearch! ? null : const EdgeInsets.only(left: 12),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          hintText: hintText,
+          hintStyle: const TextStyle(
+            color: Colors.grey,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
+          suffixIcon: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.send_outlined,
+              color: AppColor.contractInfoColor,
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -1,4 +1,3 @@
-import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -9,9 +8,11 @@ import '../../../models/response/detail_book_ui_models/detail_book_model.dart';
 import '../../../models/response/genres_ui_model/genres_ui_model.dart';
 import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../resource/assets_constant/images_constants.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
+import '../../../shared/widgets/show_bottom_sheet/show_bottom_sheet.dart';
 import '../controller/detail_controller.dart';
 
 part 'detail_screen_children.dart';
@@ -73,7 +74,6 @@ class DetailScreen extends GetView<DetailController> {
                             Scrollbar(
                               child: SingleChildScrollView(
                                 child: Container(
-                                
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -88,7 +88,65 @@ class DetailScreen extends GetView<DetailController> {
                                               '',
                                           status: controller
                                                   .apiBookInfo.value?.status ??
-                                              'Loading'),
+                                              'Loading',
+                                          onChangeData: () {
+                                            ShowBottomSheet().showBottomSheet(
+                                                context: context,
+                                                colors: Colors.white,
+                                                child: Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Column(children: [
+                                                    const SizedBox(height: 32),
+                                                    RatingBar.builder(
+                                                      onRatingUpdate: (rating) {
+                                                        print('$rating');
+                                                      },
+                                                      itemSize: 30,
+                                                      initialRating: 1,
+                                                      minRating: 1.0,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      allowHalfRating: false,
+                                                      itemCount: 5,
+                                                      itemBuilder:
+                                                          (context, _) =>
+                                                              const Icon(
+                                                        Icons.star_sharp,
+                                                        color: Colors.amber,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(height: 24),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                            color: AppColor
+                                                                .contractInfoColor),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                horizontal: 16,
+                                                                vertical: 12),
+                                                        child: Center(
+                                                            child: Text(
+                                                                'Gửi đánh giá',
+                                                                style: TextAppStyle()
+                                                                    .textNextStyle())),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(height: 32)
+                                                  ]),
+                                                ));
+                                          }),
                                       Container(
                                         height: 1,
                                         color: AppColor
@@ -100,7 +158,18 @@ class DetailScreen extends GetView<DetailController> {
                                       _commentBook(
                                           lstComment: controller.apiBookInfo
                                                   .value?.comments ??
-                                              [])
+                                              []),
+                                      const SizedBox(
+                                        height: 12,
+                                      ),
+                                      _pushCommentBook(
+                                        context: context,
+                                        hintText: 'input comment',
+                                        onChangeData: () {},
+                                      ),
+                                      const SizedBox(
+                                        height: 12,
+                                      ),
                                     ],
                                   ),
                                 ),

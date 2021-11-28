@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 class ReadingBookController extends GetxController {
@@ -19,7 +18,8 @@ class ReadingBookController extends GetxController {
   Future<File> getFileFromUrl(String urlFileNetwork) async {
     try {
       final url = urlFileNetwork;
-      final filename = urlFileNetwork.substring(urlFileNetwork.lastIndexOf('/') + 1);
+      final filename =
+          urlFileNetwork.substring(urlFileNetwork.lastIndexOf('/') + 1);
       final request = await HttpClient().getUrl(Uri.parse(url));
       final response = await request.close();
       final bytes = await consolidateHttpClientResponseBytes(response);
