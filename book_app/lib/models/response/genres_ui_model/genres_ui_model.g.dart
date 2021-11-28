@@ -8,15 +8,15 @@ part of 'genres_ui_model.dart';
 
 GenreUIItem _$GenreUIItemFromJson(Map<String, dynamic> json) => GenreUIItem(
       id: json['id'] as int?,
-      genreName: json['genreName'] as String?,
+      genreName: json['genre_name'] as String?,
       description: json['description'] as String?,
-      genreImage: json['genreImage'] as String?,
+      genreImage: json['genre_image'] as String?,
     );
 
 Map<String, dynamic> _$GenreUIItemToJson(GenreUIItem instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'genreName': instance.genreName,
+      'genre_name': instance.genreName,
       'description': instance.description,
-      'genreImage': instance.genreImage,
+      'genre_image': instance.genreImage,
     };

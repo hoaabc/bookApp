@@ -1,19 +1,24 @@
 part of 'detail_screen.dart';
 
 extension _DetailChildern on DetailScreen {
-  Widget _inforBook({required BookDetailModel? bookItem}) {
+  Widget _inforBook({required DetailBookUIModel? bookItem}) {
+    if (bookItem == null) {
+      return const SizedBox.shrink();
+    }
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
         ),
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         child: Row(children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: FCoreImage(
-              ImageConstants.book_demo,
+              bookItem.bookImage ?? '',
               width: 150,
+              height: 170,
+              fit: BoxFit.cover,
             ),
           ),
           const SizedBox(
@@ -24,27 +29,19 @@ extension _DetailChildern on DetailScreen {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(bookItem!.name ?? '',
+                Text(bookItem.name ?? '',
                     overflow: TextOverflow.ellipsis,
                     style: TextAppStyle().textRestPasswordStyle()),
                 const SizedBox(
                   height: 8,
                 ),
-                Text(' vu trung klien',
+                Text(bookItem.author?.name ?? '',
                     overflow: TextOverflow.ellipsis,
                     style: TextAppStyle().textAuthorBookStyle()),
                 const SizedBox(
                   height: 8,
                 ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: AppColor.primaryHintColorLight.withOpacity(0.5),
-                  ),
-                  child: Text(' Ngoon tinhf ',
-                      style: TextAppStyle().texttitleStyle()),
-                ),
+                _genresBook(lstgenres: bookItem.genres ?? []),
                 const SizedBox(
                   height: 12,
                 ),
@@ -88,14 +85,23 @@ extension _DetailChildern on DetailScreen {
               ],
             ),
           ),
-         
         ]));
+  }
+
+  Widget _genresBook({required List<GenreUIItem> lstgenres}) {
+    return Wrap(
+        runSpacing: 8,
+        children: List<Widget>.generate(lstgenres.length, (index) {
+          return Text(lstgenres[index].genreName ?? '',
+              style: TextAppStyle().textAddressStyle());
+        }));
   }
 
   Widget _readMoreDescription(
       {required String description,
-      required int rating_point,
+      required String rating_point,
       required String status}) {
+    double result = double.parse(rating_point);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
@@ -111,7 +117,7 @@ extension _DetailChildern on DetailScreen {
                   print('$rating');
                 },
                 itemSize: 20,
-                initialRating: rating_point.toDouble(),
+                initialRating: result,
                 minRating: 1.0,
                 direction: Axis.horizontal,
                 allowHalfRating: false,
@@ -138,41 +144,131 @@ extension _DetailChildern on DetailScreen {
         ));
   }
 
-  Widget _listChapters() {
+  Widget _listChapters({required List<Episode> lstEpisode}) {
     return Container(
-        child: Scrollbar(
-      child: ListView.separated(
-          padding: const EdgeInsets.all(0),
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ReadingChapter()),
-                );
-              },
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Chapter', style: TextAppStyle().textWalletStyle()),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text('Date',
-                        style: TextAppStyle().textContentOnboardingStyle()),
-                  ],
+        child: ListView.separated(
+            padding: const EdgeInsets.all(0),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                title: Text(
+                  lstEpisode[index].name ?? '',
+                  style: TextAppStyle().textWalletStyle(),
                 ),
+                subtitle: Text(
+                  '${lstEpisode[index].status}',
+                  style: TextAppStyle().textContentOnboardingStyle(),
+                ),
+                onTap: () {
+                  Get.toNamed(Routes.READING_BOOK,
+                      arguments: lstEpisode[index].contentUrl);
+                },
+              );
+            },
+            separatorBuilder: (context, index) => Container(
+                height: 1, color: AppColor.dividerColorLightBottomSheet),
+            itemCount: lstEpisode.length));
+  }
+
+  Widget _commentBook({required List<Comment> lstComment}) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 18,
+                    child: ClipOval(
+                        child: FCoreImage(ImageConstants.background_login)),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Expanded(
+                    child: Text(
+                      lstComment[index].user?.username ?? '',
+                      style: TextAppStyle().textTitleExpantedStyle(),
+                    ),
+                  )
+                ],
               ),
-            );
-          },
-          separatorBuilder: (context, index) => Container(
-              height: 1, color: AppColor.dividerColorLightBottomSheet),
-          itemCount: 10),
-    ));
+              const SizedBox(
+                height: 8,
+              ),
+              Container(
+                child: ReadMoreText(
+                  lstComment[index].commentContent ?? '',
+                  trimLines: 2,
+                  style: TextAppStyle().textTitleExpantedStyle(),
+                  colorClickableText: Colors.blue,
+                  trimMode: TrimMode.Line,
+                  trimCollapsedText: '...Show more',
+                  trimExpandedText: ' show less',
+                ),
+              )
+            ],
+          ),
+        );
+      },
+      itemCount: lstComment.length,
+      separatorBuilder: (context, index) => const SizedBox(
+        width: 12,
+      ),
+    );
+  }
+
+  Widget _bottomBarDetail() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border(
+              top: BorderSide(
+        color: AppColor.dividerColorLightBottomSheet,
+        width: 1,
+      ))),
+      padding: const EdgeInsets.only(left: 16, top: 5, right: 16, bottom: 16),
+      child: Row(
+        // ignore: prefer_const_literals_to_create_immutables
+        children: [
+          const Expanded(
+            flex: 1,
+            child: Icon(
+              Icons.favorite,
+              color: Colors.pink,
+              size: 24.0,
+            ),
+          ),
+          const Expanded(
+            flex: 1,
+            child: Icon(
+              Icons.share_outlined,
+              color: Colors.pink,
+              size: 24.0,
+            ),
+          ),
+          Expanded(
+              flex: 3,
+              child: InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: AppColor.contractInfoColor),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  child: Center(
+                      child:
+                          Text('Read', style: TextAppStyle().textNextStyle())),
+                ),
+              )),
+        ],
+      ),
+    );
   }
 }

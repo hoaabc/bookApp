@@ -15,7 +15,6 @@ class AuthController extends GetxController with ProductForm {
   Future<void> ChageshowWallet(bool changeshowWallet) async {
     showWallet.value = !changeshowWallet;
   }
-
   ApiRepository apiRepository;
   AuthController({required this.apiRepository});
   RxString email = RxString('');
@@ -23,17 +22,14 @@ class AuthController extends GetxController with ProductForm {
   Future<void> setPass(String text) async {
     passWord.value = text;
   }
-
   Future<void> setEmail(String text) async {
     email.value = text;
   }
-
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   Future<void> login(BuildContext context) async {
     try {
-      //AppFocus.unfocus(context);
       if (loginFormKey.currentState!.validate()) {
         apiLoginData.value = await apiRepository.login(
           LoginRequest(
