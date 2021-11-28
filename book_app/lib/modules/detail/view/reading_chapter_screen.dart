@@ -16,36 +16,40 @@ class ReadingChapter extends GetView<DetailController> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Obx(
-          () => controller.file.value != null
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: FCoreImage(IconConstants.icBackLogin,
-                              fit: BoxFit.contain)),
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    Expanded(
-                      child: PDFView(
-                        autoSpacing: false,
-                        filePath: controller.file.value,
-                      ),
-                    ),
-                  ],
-                )
-              : Container(),
-        ),
+        body:Container()
+        
+        //  Obx(
+        //   () => controller.file.value != null
+        //       ? Column(
+        //           crossAxisAlignment: CrossAxisAlignment.start,
+        //           children: [
+        //             const SizedBox(
+        //               height: 24,
+        //             ),
+        //             Padding(
+        //               padding: const EdgeInsets.symmetric(horizontal: 16),
+        //               child: InkWell(
+        //                   onTap: () {
+        //                     Navigator.of(context).pop();
+        //                   },
+        //                   child: FCoreImage(IconConstants.icBackLogin,
+        //                       fit: BoxFit.contain)),
+        //             ),
+        //             const SizedBox(
+        //               height: 24,
+        //             ),
+        //             Expanded(
+        //               child: PDFView(
+        //                 autoSpacing: false,
+        //                 filePath: controller.file.value,
+        //               ),
+        //             ),
+        //           ],
+        //         )
+        //       : Container(),
+        // ),
+
+
       ),
     );
   }
