@@ -1,4 +1,6 @@
 import 'package:book_app/modules/detail/view/reading_chapter_screen.dart';
+import 'package:book_app/modules/register/binding/register_binding.dart';
+import 'package:book_app/modules/register/view/register_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -25,6 +27,11 @@ final routePages = [
     name: Routes.AUTH,
     page: () => LoginScreen(),
     binding: AuthBinding(),
+  ),
+  GetPage(
+    name: Routes.REGISTER,
+    page: () => RegisterScreen(),
+    binding: RegisterBinding(),
   ),
   GetPage(
       name: Routes.TYPEHISTORY,
