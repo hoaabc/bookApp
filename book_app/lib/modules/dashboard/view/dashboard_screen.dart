@@ -28,7 +28,6 @@ class _DashBoardScreenState extends State<DashBoardScreen>
     super.initState();
     _screens = [
       HomeScreen(),
-      DetailScreen(),
       FavoriteScreen(),
       ProfileScreen(),
     ];
@@ -80,12 +79,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
         BottomBarItemWidget(
           icon: IconConstants.iconHistoryUnActive,
           activeIcon: IconConstants.iconHistoryActive,
-          label: 'Lịch sử'.tr,
-        ),
-        BottomBarItemWidget(
-          icon: IconConstants.iconMessageUnActive,
-          activeIcon: IconConstants.iconMessageActive,
-          label: 'Yêu thích'.tr,
+          label: 'yêu thích'.tr,
         ),
         BottomBarItemWidget(
           icon: IconConstants.iconAccountUnActive,

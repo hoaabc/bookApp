@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../../api/api_repository.dart';
 import '../../../models/response/detail_book_ui_models/detail_book_model.dart';
 
-class DetailController extends GetxController with ProductForm{
+class DetailController extends GetxController with ProductForm {
   final ApiRepository apiRepository;
   Rx<DetailBookUIModel?> apiBookInfo = Rx<DetailBookUIModel?>(null);
   final GlobalKey<FormState> commentFormKey = GlobalKey<FormState>();
@@ -18,7 +18,8 @@ class DetailController extends GetxController with ProductForm{
   Future<void> setComment(String text) async {
     commentPost.value = text;
   }
-final commentController = TextEditingController();
+
+  final commentController = TextEditingController();
   RxInt indexSelected = 0.obs;
   DetailController(this.apiRepository);
   @override
@@ -54,7 +55,7 @@ final commentController = TextEditingController();
             )) ??
             false;
       }
-      print( result.value);
+      print(result.value);
     } catch (_e) {
       // print(apiLoginData.value?.accessToken);
       ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(

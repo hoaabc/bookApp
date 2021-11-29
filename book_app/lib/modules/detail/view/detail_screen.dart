@@ -1,4 +1,3 @@
-import 'package:book_app/shared/widgets/text_input_login/text_input_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -14,6 +13,7 @@ import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../../../shared/widgets/show_bottom_sheet/show_bottom_sheet.dart';
+import '../../../shared/widgets/text_input_login/text_input_login.dart';
 import '../controller/detail_controller.dart';
 
 part 'detail_screen_children.dart';
@@ -168,17 +168,14 @@ class DetailScreen extends GetView<DetailController> {
                                         child: Container(
                                           margin: const EdgeInsets.symmetric(
                                               horizontal: 16),
-                                          
                                           child: TextInputLogin(
                                             isRequired: false,
                                             obscureText: false,
                                             onChanged: (value) {
                                               controller.setComment(value);
                                             },
-
                                             validator:
                                                 controller.requiredValidator,
-
                                             suffixIcon: IconButton(
                                               onPressed: () {
                                                 controller.pushComment();
@@ -190,19 +187,6 @@ class DetailScreen extends GetView<DetailController> {
                                                     AppColor.contractInfoColor,
                                               ),
                                             ),
-                                            //  IconButton(
-                                            //   onPressed: () {
-                                            //     controller.ChageshowWallet(
-                                            //         controller.showWallet.value);
-                                            //   },
-                                            //   icon: Icon(
-                                            //     controller.showWallet.value
-                                            //         ? Icons.visibility_off_outlined
-                                            //         : Icons.visibility_outlined,
-                                            //     color: AppColor.primaryTextColorLight,
-                                            //   ),
-                                            // ),
-                                            //onChanged:
                                             hint: 'input comment',
                                           ),
                                         ),
