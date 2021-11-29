@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../book_item_ui_moel/ui_item.dart';
+import '../genres_ui_model/genres_ui_model.dart';
 
 part 'home_page_model_ui.g.dart';
 
@@ -17,7 +18,7 @@ class HomeModelUIModel {
   @JsonKey()
   List<SliderUIModel>? slider;
   @JsonKey()
-  List<GenreHome>? genres;
+  List<GenreUIItem>? genres;
   @JsonKey()
   List<UIItem>? latestBook;
   @JsonKey()
@@ -31,26 +32,7 @@ class HomeModelUIModel {
   Map<String, dynamic> toJson() => _$HomeModelUIModelToJson(this);
 }
 
-@JsonSerializable()
-class GenreHome {
-  GenreHome({
-    this.id,
-    this.genreName,
-    this.description,
-    this.genreImage,
-  });
-  @JsonKey()
-  int? id;
-  @JsonKey()
-  String? genreName;
-  @JsonKey()
-  String? description;
-  @JsonKey()
-  String? genreImage;
-  factory GenreHome.fromJson(Map<String, dynamic> json) =>
-      _$GenreHomeFromJson(json);
-  Map<String, dynamic> toJson() => _$GenreHomeToJson(this);
-}
+
 
 @JsonSerializable()
 class SliderUIModel {

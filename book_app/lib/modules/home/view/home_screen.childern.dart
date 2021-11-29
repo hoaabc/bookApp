@@ -1,21 +1,9 @@
 part of 'home_screen.dart';
 
 extension _OnboardingChildern on HomeScreen {
-  Widget _genListBookItem({required List<UIItem> lstItems}) {
-    return Wrap(
-        spacing: 16,
-        runSpacing: 16,
-        children: List<Widget>.generate(lstItems.length, (index) {
-          return ReadingListCard(
-            items: lstItems[index],
-            pressDetails: () {
-              print("Press");
-            },
-          );
-        }));
-  }
 
-  Widget _lstGenres({required List<GenreHome> lstGenres}) {
+
+  Widget _lstGenres({required List<GenreUIItem> lstGenres}) {
     return Scrollbar(
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -38,8 +26,8 @@ extension _OnboardingChildern on HomeScreen {
                       borderRadius: BorderRadius.circular(12),
                       child: FCoreImage(
                         lstGenres[index].genreImage ?? '',
-                        height:170,
-                        width:150,
+                        height: 170,
+                        width: 150,
                         fit: BoxFit.cover,
                       ),
                     ),

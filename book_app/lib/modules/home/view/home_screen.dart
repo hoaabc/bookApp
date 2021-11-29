@@ -1,15 +1,13 @@
 // import 'package:book_app/models/response/home_model/book_home_model.dart';
-import 'package:book_app/models/response/home_page_model_ui/home_page_model_ui.dart';
-import 'package:book_app/shared/widgets/loading/loading_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/response/book_item_ui_moel/ui_item.dart';
-//import '../../../models/response/home_ui_model/home_model_ui.dart';
+import '../../../models/response/genres_ui_model/genres_ui_model.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
 import '../../../shared/widgets/carousel/carousel_widget.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
+import '../../../shared/widgets/loading/loading_data.dart';
 import '../../../shared/widgets/reading_card_list/reading_card_list.dart';
 import '../controller/home_controller.dart';
 
@@ -21,7 +19,6 @@ class HomeScreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-     
         child: Container(
           child: Obx(
             () => controller.homeApiData.value != null
@@ -68,10 +65,13 @@ class HomeScreen extends GetView<HomeController> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 16),
                                 width: Get.width,
-                                child: _genListBookItem(
+                                child: ReadingListCard(
                                     lstItems: controller
                                             .homeApiData.value?.latestBook ??
-                                        []),
+                                        [],
+                                    pressDetails: (index) {
+                                      controller.onChangeSelected(index);
+                                    }),
                               ),
                               const SizedBox(height: 24),
                               Padding(
@@ -86,10 +86,13 @@ class HomeScreen extends GetView<HomeController> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 16),
                                 width: Get.width,
-                                child: _genListBookItem(
+                                child: ReadingListCard(
                                     lstItems: controller
                                             .homeApiData.value?.bookSeries ??
-                                        []),
+                                        [],
+                                    pressDetails: (index) {
+                                      controller.onChangeSelected(index);
+                                    }),
                               ),
                               const SizedBox(height: 24),
                               Padding(
@@ -104,10 +107,13 @@ class HomeScreen extends GetView<HomeController> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 16),
                                 width: Get.width,
-                                child: _genListBookItem(
+                                child: ReadingListCard(
                                     lstItems:
                                         controller.homeApiData.value?.topView ??
-                                            []),
+                                            [],
+                                    pressDetails: (index) {
+                                      controller.onChangeSelected(index);
+                                    }),
                               ),
                               const SizedBox(height: 24),
                               Padding(
@@ -122,10 +128,14 @@ class HomeScreen extends GetView<HomeController> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 16),
                                 width: Get.width,
-                                child: _genListBookItem(
-                                    lstItems: controller
-                                            .homeApiData.value?.mostFavorite ??
-                                        []),
+                                child: ReadingListCard(
+                                  lstItems: controller
+                                          .homeApiData.value?.mostFavorite ??
+                                      [],
+                                  pressDetails: (index) {
+                                    controller.onChangeSelected(index);
+                                  },
+                                ),
                               ),
                             ],
                           )),

@@ -1,28 +1,25 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:get/get.dart';
 
 import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
-import '../controller/detail_controller.dart';
+import '../../../shared/widgets/loading/loading_data.dart';
+import '../controller/reading_book_controller.dart';
 
-class ReadingChapter extends GetView<DetailController> {
-  // final File? file;
-  const ReadingChapter();
-
+class ReadingChapter extends GetView<ReadingBookController> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Obx(
+    return Scaffold(
+      
+      body: SafeArea(
+        child: Obx(
           () => controller.file.value != null
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 24,
+                      height: 12,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -44,7 +41,7 @@ class ReadingChapter extends GetView<DetailController> {
                     ),
                   ],
                 )
-              : Container(),
+              : const LoadingIndicatorWidget(),
         ),
       ),
     );

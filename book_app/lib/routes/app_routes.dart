@@ -12,4 +12,5 @@ abstract class Routes {
   static const DASHBOARD = '/dashboard';
   static const VIEWPDF = '/view_pdf_screen';
   static const REGISTER = '/register_screen';
+  static const READING_BOOK = '/reading_book_screen';
 }

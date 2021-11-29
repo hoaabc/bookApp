@@ -1,6 +1,9 @@
-import 'package:book_app/modules/detail/view/reading_chapter_screen.dart';
 import 'package:book_app/modules/register/binding/register_binding.dart';
 import 'package:book_app/modules/register/view/register_screen.dart';
+
+import 'package:book_app/modules/reading_book/binding/reading_book_binding.dart';
+import 'package:book_app/modules/reading_book/view/reading_book_screen.dart';
+
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -39,15 +42,10 @@ final routePages = [
       binding: TypeHistoryBinding()),
   GetPage(name: Routes.HOME, page: () => HomeScreen(), binding: HomeBinding()),
   GetPage(
-      name: Routes.DETAIL,
-      page: () => DetailScreen(),
-      binding: DetailBinding(),
-      children: [
-        GetPage(
-          name: Routes.VIEWPDF,
-          page: () => const ReadingChapter(),
-        ),
-      ]),
+    name: Routes.DETAIL,
+    page: () => DetailScreen(),
+    binding: DetailBinding(),
+  ),
   GetPage(
       name: Routes.FAVOURITE,
       page: () => FavoriteScreen(),
@@ -67,4 +65,8 @@ final routePages = [
     ProfileBinding(),
     FavoriteBinding()
   ]),
+  GetPage(
+      name: Routes.READING_BOOK,
+      page: () => ReadingChapter(),
+      binding: ReadingBookBinding()),
 ];

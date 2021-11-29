@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:book_app/models/response/book_item_ui_moel/ui_item.dart';
-
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/auth_model_ui/login_response_ui_model.dart';
 import '../models/response/auth_model_ui/register_response.dart';
+import '../models/response/book_item_ui_moel/ui_item.dart';
+import '../models/response/detail_book_ui_models/detail_book_model.dart';
 import '../models/response/home_page_model_ui/home_page_model_ui.dart';
 //import '../models/response/home_ui_model/home_model_ui.dart';
 import '../models/response/profile_ui_model/profile_model_ui.dart';
@@ -61,8 +61,9 @@ class ApiRepository {
       return null;
     }
   }
-  // get data recent 
-    Future<List<UIItem>?> getDataRecentUI() async {
+
+  // get data recent
+  Future<List<UIItem>?> getDataRecentUI() async {
     final res = await apiProvider.getDataRecent('api/recent-book');
     if (res.statusCode == 200) {
       final value = res.body!
@@ -70,6 +71,19 @@ class ApiRepository {
           .toList();
       return value;
     } else {
+      return null;
+    }
+  }
+
+  // get book detail
+  Future<DetailBookUIModel?> getDataBookDetail({required String id}) async {
+    try {
+      final res = await apiProvider.getDataDetail('api/books/$id');
+      if (res.statusCode == 200) {
+        return DetailBookUIModel.fromJson(res.body);
+      }
+    } catch (e) {
+      print(e);
       return null;
     }
   }

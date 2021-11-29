@@ -12,7 +12,7 @@ HomeModelUIModel _$HomeModelUIModelFromJson(Map<String, dynamic> json) =>
           ?.map((e) => SliderUIModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       genres: (json['genres'] as List<dynamic>?)
-          ?.map((e) => GenreHome.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => GenreUIItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       latestBook: (json['latest_book'] as List<dynamic>?)
           ?.map((e) => UIItem.fromJson(e as Map<String, dynamic>))
@@ -36,20 +36,6 @@ Map<String, dynamic> _$HomeModelUIModelToJson(HomeModelUIModel instance) =>
       'book_series': instance.bookSeries,
       'top_view': instance.topView,
       'most_favorite': instance.mostFavorite,
-    };
-
-GenreHome _$GenreHomeFromJson(Map<String, dynamic> json) => GenreHome(
-      id: json['id'] as int?,
-      genreName: json['genre_name'] as String?,
-      description: json['description'] as String?,
-      genreImage: json['genre_image'] as String?,
-    );
-
-Map<String, dynamic> _$GenreHomeToJson(GenreHome instance) => <String, dynamic>{
-      'id': instance.id,
-      'genre_name': instance.genreName,
-      'description': instance.description,
-      'genre_image': instance.genreImage,
     };
 
 SliderUIModel _$SliderUIModelFromJson(Map<String, dynamic> json) =>
