@@ -56,6 +56,7 @@ class DetailController extends GetxController with ProductForm {
             false;
       }
       print(result.value);
+      await loadBookInfo();
     } catch (_e) {
       // print(apiLoginData.value?.accessToken);
       ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
