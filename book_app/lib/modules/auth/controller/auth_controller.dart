@@ -41,7 +41,7 @@ class AuthController extends GetxController with ProductForm {
         final prefs = Get.find<SharedPreferences>();
         if (apiLoginData.value?.token != null) {
           await prefs.setString(StorageConstants.token,
-              apiLoginData.value?.token.toString()??'');
+              apiLoginData.value?.token.toString() ?? '');
           await Get.toNamed(Routes.ONBOARDING_SCREEN);
         } else {
           ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
@@ -51,13 +51,11 @@ class AuthController extends GetxController with ProductForm {
       }
     } catch (_e) {
       // print(apiLoginData.value?.accessToken);
-       ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
-            content: Text('Tài khoản hoặc mật khẩu không chính xác'),
-          ));
+      ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
+        content: Text('Tài khoản hoặc mật khẩu không chính xác'),
+      ));
     } finally {
       await EasyLoading.dismiss();
     }
   }
-
-
 }

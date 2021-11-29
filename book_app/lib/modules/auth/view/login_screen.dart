@@ -1,3 +1,5 @@
+import 'package:book_app/modules/register/view/register_screen.dart';
+import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -70,7 +72,7 @@ class LoginScreen extends GetView<AuthController> {
                                   onChanged: (text) {
                                     controller.setPass(text);
                                   },
-      
+
                                   validator: controller.requiredValidator,
                                   obscureText: !controller.showWallet.value,
                                   suffixIcon: IconButton(
@@ -90,7 +92,9 @@ class LoginScreen extends GetView<AuthController> {
                                 ),
                                 const SizedBox(height: 16),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.toNamed(Routes.REGISTER);
+                                  },
                                   child: Container(
                                     alignment: Alignment.bottomRight,
                                     child: Text('Đăng ký',

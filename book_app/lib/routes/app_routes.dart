@@ -10,5 +10,7 @@ abstract class Routes {
   static const AUTH = '/login_screen';
   static const ONBOARDING_SCREEN = '/onboarding_screen';
   static const DASHBOARD = '/dashboard';
+  static const VIEWPDF = '/view_pdf_screen';
+  static const REGISTER = '/register_screen';
   static const READING_BOOK = '/reading_book_screen';
 }

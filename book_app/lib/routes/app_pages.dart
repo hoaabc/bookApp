@@ -1,6 +1,9 @@
+import 'package:book_app/modules/register/binding/register_binding.dart';
+import 'package:book_app/modules/register/view/register_screen.dart';
 
 import 'package:book_app/modules/reading_book/binding/reading_book_binding.dart';
 import 'package:book_app/modules/reading_book/view/reading_book_screen.dart';
+
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -27,6 +30,11 @@ final routePages = [
     name: Routes.AUTH,
     page: () => LoginScreen(),
     binding: AuthBinding(),
+  ),
+  GetPage(
+    name: Routes.REGISTER,
+    page: () => RegisterScreen(),
+    binding: RegisterBinding(),
   ),
   GetPage(
       name: Routes.TYPEHISTORY,
@@ -57,7 +65,7 @@ final routePages = [
     ProfileBinding(),
     FavoriteBinding()
   ]),
-    GetPage(
+  GetPage(
       name: Routes.READING_BOOK,
       page: () => ReadingChapter(),
       binding: ReadingBookBinding()),
