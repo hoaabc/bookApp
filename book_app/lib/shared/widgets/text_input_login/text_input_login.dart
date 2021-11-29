@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 
-
 class TextInputLogin extends StatelessWidget {
+  final bool isRequired;
   final Widget? suffixIcon;
   final int maxLines;
   final String hint;
@@ -18,6 +18,7 @@ class TextInputLogin extends StatelessWidget {
   final String? value;
   TextInputLogin({
     Key? key,
+    this.isRequired = true,
     this.suffixIcon,
     this.maxLines = 1,
     required this.hint,
@@ -35,26 +36,44 @@ class TextInputLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController(text: value);
-    return TextFormField(
-      maxLines: maxLines,
-      readOnly: readOnly,
-      controller: controller,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      onTap: onTap,
-      onChanged: onChanged,
-      keyboardType: inputType,
-      obscureText: obscureText,
-      textInputAction: textInputAction,
-      validator: validator,
-      
-      decoration: InputDecoration(
-        suffixIcon: suffixIcon,
-        border: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: AppColor.primaryHintColorLight, width: 1),
-            borderRadius: const BorderRadius.all(Radius.circular(8))),
-        hintText: hint,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+    return Container(
+    
+      decoration: isRequired
+          ? null
+          : BoxDecoration(
+              
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  AppColor.color45C152.withOpacity(0.1),
+                  AppColor.color0ADC90.withOpacity(0.1),
+                ],
+              ),
+            ),
+      child: TextFormField(
+        
+        maxLines: maxLines,
+        readOnly: readOnly,
+        controller: controller,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        onTap: onTap,
+        onChanged: onChanged,
+        keyboardType: inputType,
+        obscureText: obscureText,
+        textInputAction: textInputAction,
+        validator: validator,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          
+          suffixIcon: suffixIcon,
+          border: OutlineInputBorder(
+              borderSide:
+                  BorderSide(color: AppColor.primaryHintColorLight, width: 1),
+              borderRadius: const BorderRadius.all(Radius.circular(8))),
+          hintText: hint,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+        ),
       ),
     );
   }

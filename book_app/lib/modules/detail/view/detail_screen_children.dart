@@ -97,12 +97,12 @@ extension _DetailChildern on DetailScreen {
         }));
   }
 
-  Widget _readMoreDescription(
-      {required String description,
-      required String rating_point,
-      required String status,
-      required Function onChangeData,
-      }) {
+  Widget _readMoreDescription({
+    required String description,
+    required String rating_point,
+    required String status,
+    required Function onChangeData,
+  }) {
     double result = double.parse(rating_point);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -114,36 +114,34 @@ extension _DetailChildern on DetailScreen {
                       fontSize: 18,
                       color: Colors.blue,
                       fontWeight: FontWeight.w600)),
-               Row(
-                  children: [
-                    RatingBar.builder(
-                      onRatingUpdate: (rating) {
-                        print('$rating');
-                      },
-                      itemSize: 20,
-                      initialRating: result,
-                      minRating: 1.0,
-                      direction: Axis.horizontal,
-                      allowHalfRating: false,
-                      itemCount: 5,
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star_sharp,
-                        color: Colors.amber,
-                      ),
+              Row(
+                children: [
+                  RatingBar.builder(
+                    onRatingUpdate: (rating) {
+                      print('$rating');
+                    },
+                    itemSize: 20,
+                    initialRating: result,
+                    minRating: 1.0,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star_sharp,
+                      color: Colors.amber,
                     ),
-                    IconButton(
-            onPressed: (){
-onChangeData();
-            },
-            icon: Icon(
-              Icons.create_outlined,
-              color: AppColor.contractInfoColor,
-            ),
-          ),
-                    
-                  ],
-                ),
-              
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      onChangeData();
+                    },
+                    icon: Icon(
+                      Icons.create_outlined,
+                      color: AppColor.contractInfoColor,
+                    ),
+                  ),
+                ],
+              ),
             ]),
             const SizedBox(
               height: 10,
@@ -289,18 +287,22 @@ onChangeData();
     );
   }
 
-  Widget _pushCommentBook(
-      {TextEditingController? textController,
-      required String hintText,
-      required Function onChangeData,
-      bool? isRequiredIconSearch = true,
-      required BuildContext context}) {
+  Widget _pushCommentBook({
+    required TextEditingController controler,
+    required BuildContext context,
+    required FormFieldValidator<String>? validator,
+    required String hintText,
+    required Function onChangeData,
+    bool? isRequiredIconSearch = true,
+    required Function onPressed,
+    
+  }) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-       padding: const EdgeInsets.only(left: 16),
+      padding: const EdgeInsets.only(left: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        gradient:  LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
@@ -309,9 +311,10 @@ onChangeData();
           ],
         ),
       ),
-      child: TextField(
-        onChanged: onChangeData(),
-        controller: textController,
+      child: TextFormField(
+        controller: controler,
+        validator: validator,
+       // onChanged: onChangeData(),
         maxLines: 1,
         style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 16),
         decoration: InputDecoration(
@@ -327,7 +330,8 @@ onChangeData();
             fontWeight: FontWeight.w400,
           ),
           suffixIcon: IconButton(
-            onPressed: () {},
+            onPressed:()=> onPressed(),
+            // onPressed,
             icon: Icon(
               Icons.send_outlined,
               color: AppColor.contractInfoColor,

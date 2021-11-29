@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:book_app/models/request/comment_request.dart';
+
 import '../models/request/login_request.dart';
 import '../models/request/register_request.dart';
 import '../models/response/auth_model_ui/login_response_ui_model.dart';
@@ -85,6 +87,16 @@ class ApiRepository {
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  // post coment
+  Future<bool?> postComment(CommentRequest data) async {
+    final res = await apiProvider.comment('api/commentonbook', data);
+    if (res.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

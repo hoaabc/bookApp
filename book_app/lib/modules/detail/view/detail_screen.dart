@@ -1,3 +1,4 @@
+import 'package:book_app/shared/widgets/text_input_login/text_input_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -162,10 +163,49 @@ class DetailScreen extends GetView<DetailController> {
                                       const SizedBox(
                                         height: 12,
                                       ),
-                                      _pushCommentBook(
-                                        context: context,
-                                        hintText: 'input comment',
-                                        onChangeData: () {},
+                                      Form(
+                                        key: controller.commentFormKey,
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          
+                                          child: TextInputLogin(
+                                            isRequired: false,
+                                            obscureText: false,
+                                            onChanged: (value) {
+                                              controller.setComment(value);
+                                            },
+
+                                            validator:
+                                                controller.requiredValidator,
+
+                                            suffixIcon: IconButton(
+                                              onPressed: () {
+                                                controller.pushComment();
+                                              },
+                                              // onPressed,
+                                              icon: Icon(
+                                                Icons.send_outlined,
+                                                color:
+                                                    AppColor.contractInfoColor,
+                                              ),
+                                            ),
+                                            //  IconButton(
+                                            //   onPressed: () {
+                                            //     controller.ChageshowWallet(
+                                            //         controller.showWallet.value);
+                                            //   },
+                                            //   icon: Icon(
+                                            //     controller.showWallet.value
+                                            //         ? Icons.visibility_off_outlined
+                                            //         : Icons.visibility_outlined,
+                                            //     color: AppColor.primaryTextColorLight,
+                                            //   ),
+                                            // ),
+                                            //onChanged:
+                                            hint: 'input comment',
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 12,

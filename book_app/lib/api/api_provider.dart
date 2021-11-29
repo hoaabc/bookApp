@@ -1,3 +1,4 @@
+import 'package:book_app/models/request/comment_request.dart';
 import 'package:get/get.dart';
 
 import '../models/request/login_request.dart';
@@ -38,5 +39,9 @@ class ApiProvider extends BaseProvider {
 
   Future<Response> getDataDetail(String path) {
     return get(path);
+  }
+  // post comment 
+    Future<Response> comment(String path, CommentRequest data) {
+    return post(path, data.toJson());
   }
 }
