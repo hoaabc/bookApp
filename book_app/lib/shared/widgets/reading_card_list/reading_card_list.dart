@@ -8,11 +8,13 @@ import '../image_widget/fcore_image.dart';
 class ReadingListCard extends StatelessWidget {
   final List<UIItem> lstItems;
   final Function(int) pressDetails;
+  final bool isRequired;
 
   const ReadingListCard({
     Key? key,
     required this.lstItems,
     required this.pressDetails,
+    this.isRequired = false,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class ReadingListCard extends StatelessWidget {
         runSpacing: 16,
         children: List<Widget>.generate(lstItems.length, (index) {
           return InkWell(
-            onTap: () => pressDetails(lstItems[index].id??0),
+            onTap: () => pressDetails(lstItems[index].id ?? 0),
             child: Container(
                 width: (Get.width - 48) / 2,
                 padding:
@@ -37,7 +39,6 @@ class ReadingListCard extends StatelessWidget {
                         child: FCoreImage(
                           lstItems[index].bookImage ?? '',
                           height: 170,
-                          width: 150,
                           fit: BoxFit.cover,
                         )),
                     const SizedBox(height: 8),
@@ -49,6 +50,17 @@ class ReadingListCard extends StatelessWidget {
                           color: AppColor.kLightBlackColor,
                           fontWeight: FontWeight.bold,
                         )),
+                    const SizedBox(height: 8),
+                    isRequired
+                        ? Text('View : ${lstItems[index].view_count ?? 0}',
+                            textAlign: TextAlign.start,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: AppColor.kLightBlackColor,
+                              fontWeight: FontWeight.bold,
+                            ))
+                        : const SizedBox.shrink(),
                   ],
                 )),
           );

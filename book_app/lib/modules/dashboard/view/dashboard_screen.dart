@@ -60,6 +60,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
         setState(() {
           indexSelect = index;
         });
+        
       },
       currentIndex: indexSelect,
       showSelectedLabels: true,
@@ -77,6 +78,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
           label: 'Trang chủ'.tr,
         ),
         BottomBarItemWidget(
+          
           icon: IconConstants.iconHistoryUnActive,
           activeIcon: IconConstants.iconHistoryActive,
           label: 'yêu thích'.tr,

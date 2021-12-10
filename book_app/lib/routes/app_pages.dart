@@ -1,4 +1,7 @@
-
+import 'package:book_app/modules/genres_detail/binding/book_type_binding.dart';
+import 'package:book_app/modules/genres_detail/view/genres_detail_screen.dart';
+import 'package:book_app/modules/profile_orther/binding/profile_orther_binding.dart';
+import 'package:book_app/modules/profile_orther/view/profile_orther_screen.dart';
 import 'package:book_app/modules/reading_book/binding/reading_book_binding.dart';
 import 'package:book_app/modules/reading_book/view/reading_book_screen.dart';
 import 'package:get/get.dart';
@@ -17,8 +20,6 @@ import '../modules/onboarding/binding/onboarding_binding.dart';
 import '../modules/onboarding/view/onboarding_screen.dart';
 import '../modules/profile/binding/profile_binding.dart';
 import '../modules/profile/view/profile_screen.dart';
-import '../modules/type_history/binding/type_history_binding.dart';
-import '../modules/type_history/view/type_history_screen.dart';
 
 part 'app_routes.dart';
 
@@ -29,9 +30,9 @@ final routePages = [
     binding: AuthBinding(),
   ),
   GetPage(
-      name: Routes.TYPEHISTORY,
-      page: () => TypeHistoryScreen(),
-      binding: TypeHistoryBinding()),
+      name: Routes.BOOK_TYPE,
+      page: () => GenresDetailScreen(),
+      binding: GenresDetailBinding()),
   GetPage(name: Routes.HOME, page: () => HomeScreen(), binding: HomeBinding()),
   GetPage(
     name: Routes.DETAIL,
@@ -57,8 +58,12 @@ final routePages = [
     ProfileBinding(),
     FavoriteBinding()
   ]),
-    GetPage(
+  GetPage(
       name: Routes.READING_BOOK,
       page: () => ReadingChapter(),
       binding: ReadingBookBinding()),
+  GetPage(
+      name: Routes.ORTHER_USER,
+      page: () => ProfileOrtherScreen(),
+      binding: ProfileOrtherBinding()),
 ];

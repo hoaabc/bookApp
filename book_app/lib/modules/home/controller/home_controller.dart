@@ -25,5 +25,6 @@ class HomeController extends GetxController {
   Future<void> onChangeSelected(int index) async {
     indexSelected.value = index;
     await Get.toNamed(Routes.DETAIL, arguments: indexSelected);
+    
   }
 }

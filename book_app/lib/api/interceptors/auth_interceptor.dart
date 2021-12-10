@@ -11,6 +11,5 @@ FutureOr<Request> authInterceptor(request) async {
   final storage = Get.find<SharedPreferences>();
   final token = storage.getString(StorageConstants.token);
   request.headers['Authorization'] = 'Bearer $token';
-
   return request;
 }

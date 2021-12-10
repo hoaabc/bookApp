@@ -1,9 +1,8 @@
 part of 'home_screen.dart';
 
 extension _OnboardingChildern on HomeScreen {
-
-
-  Widget _lstGenres({required List<GenreUIItem> lstGenres}) {
+  Widget _lstGenres(
+      {required List<GenreUIItem> lstGenres, required Function(int) onclick}) {
     return Scrollbar(
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -17,30 +16,33 @@ extension _OnboardingChildern on HomeScreen {
           child: Row(
             children: List<Widget>.generate(
               lstGenres.length,
-              (index) => Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: FCoreImage(
-                        lstGenres[index].genreImage ?? '',
-                        height: 170,
-                        width: 150,
-                        fit: BoxFit.cover,
+              (index) => InkWell(
+                onTap: () => onclick(lstGenres[index].id ?? 0),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 40),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: FCoreImage(
+                          lstGenres[index].genreImage ?? '',
+                          height: 170,
+                          width: 150,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(lstGenres[index].genreName ?? 'Literary Fiction',
-                        textAlign: TextAlign.start,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: AppColor.primaryTextColorLight,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
+                      const SizedBox(height: 8),
+                      Text(lstGenres[index].genreName ?? 'Literary Fiction',
+                          textAlign: TextAlign.start,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: AppColor.primaryTextColorLight,
+                            fontWeight: FontWeight.bold,
+                          ))
+                    ],
+                  ),
                 ),
               ),
             ),

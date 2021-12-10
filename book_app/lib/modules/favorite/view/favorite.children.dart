@@ -1,13 +1,16 @@
 part of 'favorite_screen.dart';
 
 extension _FavoriteChildernScreen on FavoriteScreen {
-  Widget _tabdata({required List<UIItem> lstData}) {
+  Widget _tabdata(
+      {required List<UIItem> lstData, required Function(int) onclick}) {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(0),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return itemDetail(itemModel: lstData[index]);
+        return InkWell(
+            onTap: () => onclick(lstData[index].id ?? 0),
+            child: itemDetail(itemModel: lstData[index]));
       },
       separatorBuilder: (context, index) => const SizedBox(
         height: 32,

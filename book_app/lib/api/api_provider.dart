@@ -1,4 +1,6 @@
 import 'package:book_app/models/request/comment_request.dart';
+import 'package:book_app/models/request/favorite_request.dart';
+import 'package:book_app/models/request/rating_request.dart';
 import 'package:get/get.dart';
 
 import '../models/request/login_request.dart';
@@ -40,8 +42,24 @@ class ApiProvider extends BaseProvider {
   Future<Response> getDataDetail(String path) {
     return get(path);
   }
-  // post comment 
-    Future<Response> comment(String path, CommentRequest data) {
+
+  // post comment
+  Future<Response> comment(String path, CommentRequest data) {
     return post(path, data.toJson());
   }
+
+  // get userOrther
+  Future<Response> getDataUserOrther(String path) {
+    return get(path);
+  }
+
+  // rating
+  Future<Response> ratingBook(String path, RatingRequest data) {
+    return post(path, data.toJson());
+  }
+  // yeu thich 
+    Future<Response> favoriteBook(String path, FavoriteRequest data) {
+    return post(path, data.toJson());
+  }
+
 }

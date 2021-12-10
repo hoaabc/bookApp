@@ -4,8 +4,11 @@ import '../constants/colors.dart';
 import '../widgets/image_widget/fcore_image.dart';
 
 BottomNavigationBarItem BottomBarItemWidget(
-    {required String icon, required String label, required String activeIcon}) {
+    {required String icon,
+    required String label,
+    required String activeIcon}) {
   return BottomNavigationBarItem(
+
     activeIcon: FCoreImage(
       activeIcon,
       fit: BoxFit.contain,

@@ -101,7 +101,6 @@ extension _DetailChildern on DetailScreen {
     required String description,
     required String rating_point,
     required String status,
-    required Function onChangeData,
   }) {
     double result = double.parse(rating_point);
     return Container(
@@ -129,15 +128,6 @@ extension _DetailChildern on DetailScreen {
                     itemBuilder: (context, _) => const Icon(
                       Icons.star_sharp,
                       color: Colors.amber,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      onChangeData();
-                    },
-                    icon: Icon(
-                      Icons.create_outlined,
-                      color: AppColor.contractInfoColor,
                     ),
                   ),
                 ],
@@ -186,7 +176,8 @@ extension _DetailChildern on DetailScreen {
             itemCount: lstEpisode.length));
   }
 
-  Widget _commentBook({required List<Comment> lstComment}) {
+  Widget _commentBook(
+      {required List<Comment> lstComment, required Function(int) onclick}) {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       shrinkWrap: true,
@@ -199,10 +190,13 @@ extension _DetailChildern on DetailScreen {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 18,
-                    child: ClipOval(
-                        child: FCoreImage(ImageConstants.background_login)),
+                  InkWell(
+                    onTap: () => onclick(lstComment[index].user!.id ?? 0),
+                    child: CircleAvatar(
+                      radius: 18,
+                      child: ClipOval(
+                          child: FCoreImage(ImageConstants.background_login)),
+                    ),
                   ),
                   const SizedBox(
                     width: 8,
@@ -240,7 +234,11 @@ extension _DetailChildern on DetailScreen {
     );
   }
 
-  Widget _bottomBarDetail() {
+  Widget _bottomBarDetail(
+      {required Function onChangeRating,
+      required Function favorite,
+      required bool is_liked,
+      required List<Episode> lstEpisode}) {
     return Container(
       decoration: BoxDecoration(
           border: Border(
@@ -252,25 +250,43 @@ extension _DetailChildern on DetailScreen {
       child: Row(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: Icon(
-              Icons.favorite,
-              color: Colors.pink,
-              size: 24.0,
+            child: IconButton(
+              onPressed: () {
+                favorite();
+              },
+              icon: Icon(
+                Icons.favorite,
+                color: is_liked
+                    ? AppColor.accentColorLight
+                    : AppColor.primarySelectedColorLight,
+              ),
             ),
           ),
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: Icon(
-              Icons.share_outlined,
-              color: Colors.pink,
-              size: 24.0,
+            child: IconButton(
+              onPressed: () {
+                onChangeRating();
+              },
+              icon: Icon(
+                Icons.star_sharp,
+                color: AppColor.contractInfoColor,
+              ),
             ),
           ),
           Expanded(
               flex: 3,
               child: InkWell(
+                onTap: () {
+                  if (lstEpisode.isNotEmpty) {
+                    Get.toNamed(Routes.READING_BOOK,
+                        arguments: lstEpisode[0].contentUrl);
+                  } else {
+                    return;
+                  }
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),

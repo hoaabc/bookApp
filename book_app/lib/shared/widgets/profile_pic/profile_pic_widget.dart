@@ -43,18 +43,18 @@ class ProfilePic extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Positioned(
-                    right: 5,
-                    bottom: 0,
-                    child: InkWell(
-                      onTap: onclick,
-                      child: FCoreImage(
-                        IconConstants.CameraIcon,
-                        height: 28,
-                        width: 28,
-                      ),
-                    ),
-                  )
+                  // Positioned(
+                  //   right: 5,
+                  //   bottom: 0,
+                  //   child: InkWell(
+                  //     onTap: onclick,
+                  //     child: FCoreImage(
+                  //       IconConstants.CameraIcon,
+                  //       height: 28,
+                  //       width: 28,
+                  //     ),
+                  //   ),
+                  // )
                 ],
               )),
           const SizedBox(height: 8),

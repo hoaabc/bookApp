@@ -81,73 +81,16 @@ class DetailScreen extends GetView<DetailController> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       _readMoreDescription(
-                                          description: controller.apiBookInfo
-                                                  .value?.description ??
-                                              '',
-                                          rating_point: controller.apiBookInfo
-                                                  .value?.ratingPoint ??
-                                              '',
-                                          status: controller
-                                                  .apiBookInfo.value?.status ??
-                                              'Loading',
-                                          onChangeData: () {
-                                            ShowBottomSheet().showBottomSheet(
-                                                context: context,
-                                                colors: Colors.white,
-                                                child: Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 16),
-                                                  child: Column(children: [
-                                                    const SizedBox(height: 32),
-                                                    RatingBar.builder(
-                                                      onRatingUpdate: (rating) {
-                                                        print('$rating');
-                                                      },
-                                                      itemSize: 30,
-                                                      initialRating: 1,
-                                                      minRating: 1.0,
-                                                      direction:
-                                                          Axis.horizontal,
-                                                      allowHalfRating: false,
-                                                      itemCount: 5,
-                                                      itemBuilder:
-                                                          (context, _) =>
-                                                              const Icon(
-                                                        Icons.star_sharp,
-                                                        color: Colors.amber,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 24),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                      },
-                                                      child: Container(
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20),
-                                                            color: AppColor
-                                                                .contractInfoColor),
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 16,
-                                                                vertical: 12),
-                                                        child: Center(
-                                                            child: Text(
-                                                                'Gửi đánh giá',
-                                                                style: TextAppStyle()
-                                                                    .textNextStyle())),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 32)
-                                                  ]),
-                                                ));
-                                          }),
+                                        description: controller.apiBookInfo
+                                                .value?.description ??
+                                            '',
+                                        rating_point: controller.apiBookInfo
+                                                .value?.ratingPoint ??
+                                            '',
+                                        status: controller
+                                                .apiBookInfo.value?.status ??
+                                            'Loading',
+                                      ),
                                       Container(
                                         height: 1,
                                         color: AppColor
@@ -159,7 +102,10 @@ class DetailScreen extends GetView<DetailController> {
                                       _commentBook(
                                           lstComment: controller.apiBookInfo
                                                   .value?.comments ??
-                                              []),
+                                              [],
+                                          onclick: (value) {
+                                            controller.onChangeSelected(value);
+                                          }),
                                       const SizedBox(
                                         height: 12,
                                       ),
@@ -209,7 +155,62 @@ class DetailScreen extends GetView<DetailController> {
                           ],
                         ),
                       ),
-                      _bottomBarDetail()
+                      _bottomBarDetail(
+                          is_liked:
+                              controller.apiBookInfo.value?.isLiked ?? false,
+                          onChangeRating: () {
+                            ShowBottomSheet().showBottomSheet(
+                                context: context,
+                                colors: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16),
+                                  child: Column(children: [
+                                    const SizedBox(height: 32),
+                                    RatingBar.builder(
+                                      onRatingUpdate: (rating) {
+                                        controller.ratingBook(rating.toInt());
+                                      },
+                                      itemSize: 30,
+                                      initialRating: 1,
+                                      minRating: 1.0,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: false,
+                                      itemCount: 5,
+                                      itemBuilder: (context, _) => const Icon(
+                                        Icons.star_sharp,
+                                        color: Colors.amber,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 24),
+                                    InkWell(
+                                      onTap: () {
+                                        controller.ratingPoint();
+
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color: AppColor.contractInfoColor),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 12),
+                                        child: Center(
+                                            child: Text('Gửi đánh giá',
+                                                style: TextAppStyle()
+                                                    .textNextStyle())),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 32)
+                                  ]),
+                                ));
+                          },
+                          favorite: () {
+                            controller.favoriteBook();
+                          },
+                          lstEpisode:
+                              controller.apiBookInfo.value?.episodes ?? [])
                       //Container(color: Colors.black, height: 100)
                     ],
                   ),

@@ -47,7 +47,10 @@ class HomeScreen extends GetView<HomeController> {
                               _lstGenres(
                                   lstGenres:
                                       controller.homeApiData.value?.genres ??
-                                          []),
+                                          [],
+                                          onclick: (value){
+                                            
+                                          }),
                               Container(
                                   height: 1,
                                   width: Get.width,

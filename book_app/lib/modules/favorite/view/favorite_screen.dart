@@ -44,100 +44,95 @@ class FavoriteScreen extends GetView<FavoriteController> {
                 ),
               ),
               Expanded(
-                child: TabBarView(
-                  children: [
-                    Obx(
-                      () => controller.favoriteApiData.value != null
-                          ? Scrollbar(
-                              child: SingleChildScrollView(
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(
-                                        height: 32,
-                                      ),
-                                      _tabdata(
-                                          lstData: controller
-                                                  .favoriteApiData.value ??
-                                              []),
-                                      const SizedBox(height: 32),
-                                      Text('Đề xuất liên quan',
-                                          textAlign: TextAlign.left,
-                                          style: TextAppStyle()
-                                              .textTitleContactStyle()),
-                                      const SizedBox(height: 32),
-                                      _suggestData(
-                                          lstData: controller
-                                                  .favoriteApiData.value ??
-                                              [])
-                                    ],
+                child: Obx(
+                  () => controller.favoriteApiData.value != null ||
+                          controller.recentApiData.value != null
+                      ? TabBarView(
+                          children: [
+                            RefreshIndicator(
+                              onRefresh: () => controller.loadData(),
+                              child: Scrollbar(
+                                child: SingleChildScrollView(
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 32,
+                                        ),
+                                        _tabdata(
+                                            lstData: controller
+                                                    .favoriteApiData.value ??
+                                                [],
+                                            onclick: (value) {
+                                              controller
+                                                  .onChangeSelected(value);
+                                            }),
+                                        const SizedBox(height: 32),
+                                        Text('Đề xuất liên quan',
+                                            textAlign: TextAlign.left,
+                                            style: TextAppStyle()
+                                                .textTitleContactStyle()),
+                                        const SizedBox(height: 32),
+                                        _suggestData(
+                                            lstData: controller
+                                                    .favoriteApiData.value ??
+                                                [])
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            RefreshIndicator(
+                              onRefresh: () => controller.loadData(),
+                              child: Scrollbar(
+                                child: SingleChildScrollView(
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 32,
+                                        ),
+                                        _tabdata(
+                                            lstData: controller
+                                                    .recentApiData.value ??
+                                                [],
+                                                   onclick: (value) {
+                                              controller
+                                                  .onChangeSelected(value);
+                                            }
+                                                ),
+                                        const SizedBox(height: 32),
+                                        Text('Đề xuất liên quan',
+                                            textAlign: TextAlign.left,
+                                            style: TextAppStyle()
+                                                .textTitleContactStyle()),
+                                        const SizedBox(height: 32),
+                                        _suggestData(
+                                            lstData: controller
+                                                    .recentApiData.value ??
+                                                [])
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             )
-                          : Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 16),
-                              height: Get.height,
-                              width: Get.width,
-                              child: Center(
-                                  child: FCoreImage(
-                                ImageConstants.icNotemptyBook,
-                                fit: BoxFit.contain,
-                              ))),
-                    ),
-                    Obx(
-                      () => controller.recentApiData.value != null
-                          ? Scrollbar(
-                              child: SingleChildScrollView(
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(
-                                        height: 32,
-                                      ),
-                                      _tabdata(
-                                          lstData:
-                                              controller.recentApiData.value ??
-                                                  []),
-                                      const SizedBox(height: 32),
-                                      Text('Đề xuất liên quan',
-                                          textAlign: TextAlign.left,
-                                          style: TextAppStyle()
-                                              .textTitleContactStyle()),
-                                      const SizedBox(height: 32),
-                                      _suggestData(
-                                          lstData:
-                                              controller.recentApiData.value ??
-                                                  [])
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 16),
-                              height: Get.height,
-                              width: Get.width,
-                              child: Center(
-                                  child: FCoreImage(
-                                ImageConstants.icNotemptyBook,
-                               
-                                fit: BoxFit.contain,
-                              ))),
-                    ),
-                  ],
+                          ],
+                        )
+                      : const SizedBox.shrink(),
                 ),
               ),
             ],
