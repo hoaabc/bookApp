@@ -73,8 +73,7 @@ class RegisterScreen extends GetView<AuthController> {
                                   },
 
                                   validator: controller.requiredValidator,
-                                  obscureText:
-                                      controller.obscurePassword.value,
+                                  obscureText: controller.obscurePassword.value,
                                   // suffixIcon: IconButton(
                                   //   onPressed: () {
                                   //     controller.ChageshowWallet();

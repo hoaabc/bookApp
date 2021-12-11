@@ -7,14 +7,21 @@ import 'package:get/get.dart';
 class GenresDetailController extends GetxController {
   final ApiRepository apiRepository;
   Rx<List<UIItem>?> detailGenerApiData = Rx<List<UIItem>?>(null);
+  RxInt indexSelectedType = 0.obs;
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+    indexSelectedType = await Get.arguments;
+  }
+
   GenresDetailController({required this.apiRepository}) {
     getListBookGener();
   }
   Future<void> getListBookGener() async {
     try {
       await EasyLoading.show(status: 'Loading...');
-      detailGenerApiData.value =
-          await apiRepository.getGenresDetailUI(idGenres: 1);
+      detailGenerApiData.value = await apiRepository.getGenresDetailUI(
+          idGenres: indexSelectedType.value);
       await EasyLoading.show(status: 'Loading...');
     } catch (e) {
       throw Exception();

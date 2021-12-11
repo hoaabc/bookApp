@@ -50,7 +50,7 @@ class HomeScreen extends GetView<HomeController> {
                                       controller.homeApiData.value?.genres ??
                                           [],
                                           onclick: (value){
-                                           Get.toNamed(Routes.BOOK_TYPE);
+                                            controller.onChangeSelectedType(value);
                                           }),
                               Container(
                                   height: 1,

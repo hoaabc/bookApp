@@ -9,6 +9,7 @@ import '../../../routes/app_pages.dart';
 class HomeController extends GetxController {
   final ApiRepository apiRepository;
   RxInt indexSelected = 0.obs;
+  RxInt indexSelectedType = 0.obs;
   Rx<HomeModelUIModel?> homeApiData = Rx<HomeModelUIModel?>(null);
   HomeController({required this.apiRepository}) {
     EasyLoading.show();
@@ -25,6 +26,11 @@ class HomeController extends GetxController {
   Future<void> onChangeSelected(int index) async {
     indexSelected.value = index;
     await Get.toNamed(Routes.DETAIL, arguments: indexSelected);
-    
+  }
+
+  Future<void> onChangeSelectedType(int index) async {
+    indexSelectedType.value = index;
+    await Get.toNamed(Routes.BOOK_TYPE, arguments: indexSelectedType);
   }
 }
+// Get.toNamed(Routes.,);
