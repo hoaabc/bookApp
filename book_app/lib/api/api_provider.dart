@@ -61,5 +61,13 @@ class ApiProvider extends BaseProvider {
     Future<Response> favoriteBook(String path, FavoriteRequest data) {
     return post(path, data.toJson());
   }
+  // top view
+     Future<Response> topViewBook(String path) {
+     return get(path);
+  }
+  // get genres detail
+       Future<Response> genresDetail(String path) {
+     return get(path);
+  }
 
 }

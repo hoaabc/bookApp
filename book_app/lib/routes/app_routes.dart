@@ -12,4 +12,6 @@ abstract class Routes {
   static const DASHBOARD = '/dashboard';
   static const READING_BOOK = '/reading_book_screen';
   static const ORTHER_USER = '/orther_user_screen';
+  static const TOP_VIEW = '/top_view_screen';
+  static const RESISTER_SCREEN = '/register_screen';
 }

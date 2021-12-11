@@ -5,10 +5,10 @@ import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../shared/bottom_navigation/bottom_bar_item.dart';
 import '../../../shared/constants/colors.dart';
 import '../../../shared/styles/text_style/text_style.dart';
-import '../../detail/view/detail_screen.dart';
 import '../../favorite/view/favorite_screen.dart';
 import '../../home/view/home_screen.dart';
 import '../../profile/view/profile_screen.dart';
+import '../../top_view/view/top_view_screen.dart';
 
 class DashBoardScreen extends StatefulWidget {
   DashBoardScreen({Key? key}) : super(key: key);
@@ -30,6 +30,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
       HomeScreen(),
       FavoriteScreen(),
       ProfileScreen(),
+      TopViewScreen(),
     ];
     _tabController = TabController(vsync: this, length: _screens.length);
   }
@@ -88,7 +89,15 @@ class _DashBoardScreenState extends State<DashBoardScreen>
           activeIcon: IconConstants.iconAccountActive,
           label: 'Tài khoản'.tr,
         ),
+          BottomBarItemWidget(
+          icon: IconConstants.icTopUnActive,
+          activeIcon: IconConstants.icTopActive,
+          label: 'Top View'.tr,
+        ),
       ],
     );
   }
 }
+
+
+

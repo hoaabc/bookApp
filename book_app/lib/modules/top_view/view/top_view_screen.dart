@@ -1,3 +1,4 @@
+import 'package:book_app/shared/constants/colors.dart';
 import 'package:book_app/shared/styles/text_style/text_style.dart';
 import 'package:book_app/shared/widgets/reading_card_list/reading_card_list.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,8 @@ import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../controller/top_view_controller.dart';
 
-class BookTypeScreen extends GetView<TopViewController> {
-  BookTypeScreen({Key? key}) : super(key: key);
+class TopViewScreen extends GetView<TopViewController> {
+  TopViewScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +23,17 @@ class BookTypeScreen extends GetView<TopViewController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: FCoreImage(IconConstants.icBackLogin,
-                            fit: BoxFit.contain)),
-                    const Text(
+                    const SizedBox(),
+                    Text(
                       'Top View',
                       style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         fontFamily: TextAppStyle.appFont,
-                        color: Colors.white,
+                         color: AppColor.primaryTextColorLight,
                       ),
                     ),
                     const SizedBox()

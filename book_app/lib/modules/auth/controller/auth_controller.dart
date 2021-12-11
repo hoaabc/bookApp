@@ -11,9 +11,9 @@ import '../../../shared/utils/product_form_ultilies.dart';
 
 class AuthController extends GetxController with ProductForm {
   Rx<LoginResponseUIModel?> apiLoginData = Rx<LoginResponseUIModel?>(null);
-  RxBool showWallet = false.obs;
-  Future<void> ChageshowWallet(bool changeshowWallet) async {
-    showWallet.value = !changeshowWallet;
+  RxBool obscurePassword = false.obs;
+  Future<void> ChageshowWallet() async {
+    obscurePassword.value = !obscurePassword.value;
   }
   ApiRepository apiRepository;
   AuthController({required this.apiRepository});

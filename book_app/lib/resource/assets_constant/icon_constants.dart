@@ -85,4 +85,12 @@ class IconConstants {
       'lib/resource/assets_resources/icons/facebook-2.svg';
   static const String iconLoginGoogle =
       'lib/resource/assets_resources/icons/google-icon.svg';
+
+
+  // icon menu top
+  static const String icTopActive =
+      'lib/resource/assets_resources/icons/top_active.png';
+    static const String icTopUnActive =
+      'lib/resource/assets_resources/icons/top_un_active.png';
 }
+//

@@ -55,12 +55,13 @@ class ProfileScreen extends GetView<ProfileController> {
                                           controller.editValue(controller
                                               .editTextContrller.value);
                                         },
-                                        child: Text(
-                                            controller.editTextContrller.value
-                                                ? 'Lưu'
-                                                : 'Chỉnh sửa',
-                                            style: TextAppStyle()
-                                                .textPhoneNumberStyle()),
+                                        child: const SizedBox()
+                                        // Text(
+                                        //     controller.editTextContrller.value
+                                        //         ? 'Lưu'
+                                        //         : 'Chỉnh sửa',
+                                        //     style: TextAppStyle()
+                                        //         .textPhoneNumberStyle()),
                                       ),
                                     ]),
                                 const SizedBox(

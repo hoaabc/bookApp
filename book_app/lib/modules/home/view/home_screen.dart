@@ -1,4 +1,5 @@
 // import 'package:book_app/models/response/home_model/book_home_model.dart';
+import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -49,7 +50,7 @@ class HomeScreen extends GetView<HomeController> {
                                       controller.homeApiData.value?.genres ??
                                           [],
                                           onclick: (value){
-                                            
+                                           Get.toNamed(Routes.BOOK_TYPE);
                                           }),
                               Container(
                                   height: 1,

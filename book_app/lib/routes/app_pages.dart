@@ -1,9 +1,12 @@
+import 'package:book_app/modules/auth/view/register_screen.dart';
 import 'package:book_app/modules/genres_detail/binding/book_type_binding.dart';
 import 'package:book_app/modules/genres_detail/view/genres_detail_screen.dart';
 import 'package:book_app/modules/profile_orther/binding/profile_orther_binding.dart';
 import 'package:book_app/modules/profile_orther/view/profile_orther_screen.dart';
 import 'package:book_app/modules/reading_book/binding/reading_book_binding.dart';
 import 'package:book_app/modules/reading_book/view/reading_book_screen.dart';
+import 'package:book_app/modules/top_view/binding/top_view_binding.dart';
+import 'package:book_app/modules/top_view/view/top_view_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/binding/auth_binding.dart';
@@ -25,10 +28,15 @@ part 'app_routes.dart';
 
 final routePages = [
   GetPage(
-    name: Routes.AUTH,
-    page: () => LoginScreen(),
-    binding: AuthBinding(),
-  ),
+      name: Routes.AUTH,
+      page: () => LoginScreen(),
+      binding: AuthBinding(),
+      children: [
+        GetPage(
+            name: Routes.RESISTER_SCREEN,
+            page: () => RegisterScreen(),
+            binding: AuthBinding()),
+      ]),
   GetPage(
       name: Routes.BOOK_TYPE,
       page: () => GenresDetailScreen(),
@@ -54,7 +62,7 @@ final routePages = [
   GetPage(name: Routes.DASHBOARD, page: () => DashBoardScreen(), bindings: [
     DashboardBinding(),
     HomeBinding(),
-    DetailBinding(),
+    TopViewBinding(),
     ProfileBinding(),
     FavoriteBinding()
   ]),
@@ -66,4 +74,8 @@ final routePages = [
       name: Routes.ORTHER_USER,
       page: () => ProfileOrtherScreen(),
       binding: ProfileOrtherBinding()),
+  GetPage(
+      name: Routes.TOP_VIEW,
+      page: () => TopViewScreen(),
+      binding: TopViewBinding()),
 ];

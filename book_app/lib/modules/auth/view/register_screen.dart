@@ -1,4 +1,3 @@
-import 'package:book_app/modules/auth/view/register_screen.dart';
 import 'package:book_app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,7 @@ import '../../../shared/widgets/image_widget/fcore_image.dart';
 import '../../../shared/widgets/text_input_login/text_input_login.dart';
 import '../controller/auth_controller.dart';
 
-class LoginScreen extends GetView<AuthController> {
+class RegisterScreen extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +38,8 @@ class LoginScreen extends GetView<AuthController> {
                       child: FCoreImage(ImageConstants.ic_logo_book_app_login,
                           height: 160, width: 160, fit: BoxFit.cover)),
                   const SizedBox(height: 8),
-                 Form(
-                        key: controller.loginFormKey,
+                  Obx(() => Form(
+                        // key: controller.loginFormKey,
                         child: Container(
                             decoration: BoxDecoration(
                               color: AppColor.secondBackgroundColorLight,
@@ -54,7 +53,7 @@ class LoginScreen extends GetView<AuthController> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Đăng nhập',
+                                Text('Đăng Ký',
                                     style:
                                         TextAppStyle().textRestPasswordStyle()),
                                 const SizedBox(height: 16),
@@ -68,46 +67,32 @@ class LoginScreen extends GetView<AuthController> {
                                   hint: 'Email',
                                 ),
                                 const SizedBox(height: 16),
-                                Obx(()=>
-                                   TextInputLogin(
-                                    onChanged: (text) {
-                                      controller.setPass(text);
-                                    },
-                                
-                                    //validator: controller.requiredValidator,
-                                    obscureText: !controller.obscurePassword.value,
-                                    // suffixIcon: IconButton(
-                                    //   onPressed: () {
-                                    //     controller.ChageshowWallet();
-                                    //   },
-                                    //   icon: Icon(
-                                    //     controller.obscurePassword.value
-                                    //         ? Icons.visibility_off_outlined
-                                    //         : Icons.visibility_outlined,
-                                    //     color: AppColor.primaryTextColorLight,
-                                    //   ),
-                                    // ),
-                                    //onChanged:
-                                    hint: 'Password',
-                                  ),
-                                ),
-                                const SizedBox(height: 16),
-                                InkWell(
-                                  onTap: () {
-                                    Get.to(RegisterScreen());
+                                TextInputLogin(
+                                  onChanged: (text) {
+                                    controller.setPass(text);
                                   },
-                                  child: Container(
-                                    alignment: Alignment.bottomRight,
-                                    child: Text('Đăng ký',
-                                        textAlign: TextAlign.end,
-                                        style:
-                                            TextAppStyle().textAddressStyle()),
-                                  ),
+
+                                  validator: controller.requiredValidator,
+                                  obscureText:
+                                      controller.obscurePassword.value,
+                                  // suffixIcon: IconButton(
+                                  //   onPressed: () {
+                                  //     controller.ChageshowWallet();
+                                  //   },
+                                  //   icon: Icon(
+                                  //     controller.obscurePassword.value
+                                  //         ? Icons.visibility_off_outlined
+                                  //         : Icons.visibility_outlined,
+                                  //     color: AppColor.primaryTextColorLight,
+                                  //   ),
+                                  // ),
+                                  //onChanged:
+                                  hint: 'Password',
                                 ),
                                 const SizedBox(height: 32),
                                 inputInformationButton(
                                   onButtonPressed: () {
-                                    controller.login(context);
+                                    Navigator.of(context).pop();
                                   },
                                   titleButton: 'Đăng nhập',
                                   colorText: AppColor.secondTextColorLight,
@@ -116,7 +101,7 @@ class LoginScreen extends GetView<AuthController> {
                                 const SizedBox(height: 32),
                               ],
                             )),
-                      )
+                      ))
                 ],
               ),
             )
