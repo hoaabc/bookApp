@@ -92,18 +92,18 @@ class LoginScreen extends GetView<AuthController> {
                                   ),
                                 ),
                                 const SizedBox(height: 16),
-                                InkWell(
-                                  onTap: () {
-                                    Get.to(RegisterScreen());
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.bottomRight,
-                                    child: Text('Đăng ký',
-                                        textAlign: TextAlign.end,
-                                        style:
-                                            TextAppStyle().textAddressStyle()),
-                                  ),
-                                ),
+                                // InkWell(
+                                //   onTap: () {
+                                //     Get.to(RegisterScreen());
+                                //   },
+                                //   child: Container(
+                                //     alignment: Alignment.bottomRight,
+                                //     child: Text('Đăng ký',
+                                //         textAlign: TextAlign.end,
+                                //         style:
+                                //             TextAppStyle().textAddressStyle()),
+                                //   ),
+                                // ),
                                 const SizedBox(height: 32),
                                 inputInformationButton(
                                   onButtonPressed: () {
